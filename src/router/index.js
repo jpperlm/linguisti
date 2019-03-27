@@ -6,9 +6,9 @@ import Game from '@/components/Game'
 import Restart from '@/components/Restart'
 
 Vue.use(Router)
-
 export default new Router({
-  mode: 'history',
+  // eslint-disable-next-line no-extra-boolean-cast
+  mode: window.location.href.includes('index.html') ? '' : 'history',
   routes: [
     {
       path: '/',
