@@ -1,8 +1,7 @@
 <template>
   <div id="linguisti-container" v-on:click="reFocus">
-    <div id="scorecontainer">{{ score }}</div>
     <div id="promptcontainer">{{ character_native }}</div>
-    <div v-if="typeof time !== 'undefined'">
+    <div id="timercontainer" v-if="typeof time !== 'undefined'">
       {{ time }}
     </div>
     <div id="inputcontainer">
@@ -18,6 +17,7 @@
       <div id="clear-btn" v-on:click="entry = ''">
         clear
       </div>
+      <div id="scorecontainer">{{ score }}</div>
       <div id="skip-btn" v-on:click="randomizeNewLetterIndex(true, false)">
         skip
       </div>
@@ -169,14 +169,16 @@ export default {
   margin-top: 25px;
   margin-bottom: 25px;
   font-size: 1.8em;
+  width: 50%;
 }
 #promptcontainer {
-  margin-bottom: 30px;
+  margin-top: 3%;
+  margin-bottom: 3%;
   font-size: 2.8em;
   font-weight: bold;
 }
 #prevletter-container {
-  margin-top: 8%;
+  /* margin-top: 8%; */
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -193,8 +195,16 @@ export default {
 
 #clear-btn,
 #skip-btn {
-  width: 50%;
+  width: 25%;
   margin-top: 10px;
+}
+#timercontainer {
+  margin-bottom: 3%;
+  font-size: 1.2em;
+  width: 1.5em;
+  height: 1.5em;
+  border: 1px solid #e4d7d7;
+  border-radius: 100%;
 }
 /* @media only screen and (min-width: 768px) {
   #linguisti-container {
