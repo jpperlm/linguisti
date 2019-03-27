@@ -124,7 +124,7 @@ export default {
       letterIndex: undefined,
       prevLetterIndex: undefined,
       time: undefined,
-      gameLength: 5
+      gameLength: 60
     }
   }
 }
