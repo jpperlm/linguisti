@@ -5,7 +5,7 @@
     <template>
       <div id="scorecontainer">{{ score }}</div>
       <div id="promptcontainer">{{ character_native }}</div>
-      <div>
+      <div id="inputcontainer">
         <input
           id="gameinput"
           v-model="entry"
@@ -14,13 +14,14 @@
           autocomplete="off"
           autofill="none"
         />
+        <div id="clear-btn" v-on:click="entry = ''">
+          clear
+        </div>
+        <div id="skip-btn" v-on:click="randomizeNewLetterIndex(true, false)">
+          skip
+        </div>
       </div>
-      <div v-on:click="entry = ''">
-        clear
-      </div>
-      <div v-on:click="randomizeNewLetterIndex()">
-        skip
-      </div>
+
       <div
         id="prevletter-container"
         v-if="typeof prevLetterIndex !== 'undefined'"
@@ -40,6 +41,11 @@ import { mapState } from 'vuex'
 
 export default {
   name: 'Game',
+  created () {
+    if (!this.language) {
+      this.$router.push({ name: 'Splash' })
+    }
+  },
   mounted () {
     this.$refs.typebox.focus()
     this.startGame()
@@ -50,7 +56,7 @@ export default {
       if (n.toLowerCase() === this.character_english) {
         this.score++
         this.entry = ''
-        this.randomizeNewLetterIndex()
+        this.randomizeNewLetterIndex(true, true)
       }
     }
   },
@@ -73,7 +79,8 @@ export default {
           score: this.score,
           lastLetterEnglish: this.character_english,
           lastLetterNative: this.character_native,
-          language: this.language
+          language: this.language,
+          history: this.history
         }
       })
     },
@@ -88,7 +95,13 @@ export default {
       this.randomizeNewLetterIndex()
       this.tickClock()
     },
-    randomizeNewLetterIndex () {
+    randomizeNewLetterIndex (record = false, correct = false) {
+      if (record) {
+        this.history.push({
+          ...this.characters[this.letterIndex],
+          correct
+        })
+      }
       this.prevLetterIndex = this.letterIndex
       this.letterIndex = Math.floor(Math.random() * this.characters.length)
     }
@@ -96,8 +109,11 @@ export default {
   computed: {
     ...mapState({
       language: state => state.languageStore.language,
-      characters: state =>
-        state.languageStore.characterMap[state.languageStore.language.key]
+      characters: state => {
+        if (!state.languageStore.language) return []
+        let lang = state.languageStore.language.key
+        return state.languageStore.characterMap[lang]
+      }
     }),
     character_native () {
       if (typeof this.letterIndex === 'undefined') return
@@ -124,7 +140,8 @@ export default {
       letterIndex: undefined,
       prevLetterIndex: undefined,
       time: undefined,
-      gameLength: 60
+      gameLength: 60,
+      history: []
     }
   }
 }
@@ -145,6 +162,7 @@ export default {
   font-weight: bolder;
   color: #2419cc;
   margin-bottom: 5px;
+  width: 100%;
 }
 #scorecontainer {
   margin-top: 25px;
@@ -165,6 +183,16 @@ export default {
   align-items: center;
   font-size: 2em;
   min-width: 40%;
+}
+#inputcontainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+#clear-btn,
+#skip-btn {
+  width: 50%;
+  margin-top: 10px;
 }
 /* @media only screen and (min-width: 768px) {
   #linguisti-container {

@@ -56,10 +56,9 @@ export default {
   },
   methods: {
     playAnimation () {
-      let dom_element = this.$refs.text
-      let self = this
+      let domEelement = this.$refs.text
       setTimeout(() => {
-        dom_element.classList.remove('hidden')
+        domEelement.classList.remove('hidden')
         setTimeout(() => {
           this.$router.push({ name: 'Splash' })
         }, 2000)

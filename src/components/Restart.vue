@@ -1,12 +1,37 @@
 <template>
   <div id="linguisti-container">
     <div id="gameovermessage">{{ msg }}</div>
-    <div id="final-score">Final score: {{ score }}</div>
-    <div id="finallettercontainer">
-      <div style="width:100%;">Final Character</div>
-      <div>{{ lastLetterNative }}</div>
-      <div>{{ lastLetterEnglish }}</div>
-    </div>
+    <template v-if="!recap">
+      <div id="final-score">Score: {{ score }}</div>
+      <div id="finallettercontainer">
+        <div style="width:100%;">Final Character</div>
+        <div>{{ lastLetterNative }}</div>
+        <div>{{ lastLetterEnglish }}</div>
+      </div>
+      <div id="recap-btn" class="fake-button" v-on:click="toggleRecap()">
+        Game Recap
+      </div>
+    </template>
+    <template v-else>
+      <div id="recap-header">Reacp</div>
+      <div id="recap-container">
+        <div
+          class="recap-item"
+          v-for="(item, i) in history"
+          :key="`recap${i}`"
+          :class="{ wronganswer: !item.correct, correctanswer: item.correct }"
+        >
+          <!-- <div v-if="item.correct" class="correctanswer">&#x2713;</div>
+        <div v-else class="wronganswer">&#x2717;</div> -->
+          <div>{{ item['0'] }}</div>
+          <div>{{ item['1'] }}</div>
+        </div>
+      </div>
+      <div v-on:click="toggleRecap()" id="back-btn" class="fake-button">
+        Back
+      </div>
+    </template>
+
     <div
       v-on:click="$router.push({ name: 'Game' })"
       id="restart-btn"
@@ -43,15 +68,31 @@ export default {
     language: {
       type: Object,
       required: true
+    },
+    history: {
+      type: Array,
+      required: true
+    }
+  },
+  created () {
+    if (!this.language) {
+      this.$router.push({ name: 'Splash' })
     }
   },
   mounted () {
     this.msg = this.messages[Math.floor(Math.random() * this.messages.length)]
   },
+  methods: {
+    toggleRecap () {
+      this.recap = !this.recap
+      // this.$refs.recap.style.height = '50vh'
+    }
+  },
   data () {
     return {
       messages: ['Nice one!', 'Awesome!', 'Dopesauce!', 'Wicked!'],
-      msg: ''
+      msg: '',
+      recap: false
     }
   }
 }
@@ -59,7 +100,6 @@ export default {
 
 <style scoped>
 #finallettercontainer {
-  margin-top: 2vh;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -71,16 +111,46 @@ export default {
 }
 #gameovermessage {
   margin-top: 10%;
-  margin-bottom: 10%;
+  margin-bottom: 5%;
   font-size: 2.4em;
 }
 #final-score {
-  font-size: 1.3em;
+  font-size: 2.2em;
+  margin-bottom: 5%;
+}
+#recap-btn {
+  margin-bottom: 8%;
 }
 .fake-button {
   height: 4vh;
   margin: 1vh;
   width: 80vw;
   font-size: 1.1em;
+  cursor: pointer;
+}
+#recap-container {
+  overflow: scroll;
+  max-height: 40vh;
+  margin-bottom: 5%;
+  width: 40%;
+  z-index: 2;
+}
+.wronganswer {
+  color: #ff6556;
+}
+.correctanswer {
+  color: #31e41c;
+}
+.recap-item {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  font-size: 1.6em;
+  margin-bottom: 10px;
+  font-weight: bolder;
+}
+#recap-header {
+  font-size: 1.8em;
+  margin-bottom: 2%;
 }
 </style>
