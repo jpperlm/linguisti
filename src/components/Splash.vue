@@ -48,7 +48,7 @@ export default {
         this.$nextTick(() => {
           this.$router.push({ name: 'Game' })
         })
-      }, 500)
+      }, 1000)
     }
   },
   computed: {
@@ -90,6 +90,10 @@ export default {
 }
 .language-btn:last-child {
   border-bottom: 1px solid #e4d7d7;
+}
+.language-btn:hover {
+  cursor: pointer;
+  background: #24ffff;
 }
 .language-label-container {
   width: 50%;

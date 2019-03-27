@@ -3,8 +3,45 @@
     <div ref="apptitle" id="apptitle" class="slowtransition">
       Linguisti
     </div>
-    <div ref="appauthor" id="appauthor" class="slowtransition">
-      PerlmanLabs
+    <div ref="appauthor" id="appauthor">
+      <div id="intro-animation">
+        <div id="intro-animation-text">
+          <ul ref="text" class="text hidden">
+            <li>P</li>
+            <li class="ghost">
+              E
+            </li>
+            <li class="ghost">
+              R
+            </li>
+            <li class="ghost">
+              L
+            </li>
+            <li class="ghost">
+              M
+            </li>
+            <li class="ghost">
+              A
+            </li>
+            <li class="ghost">
+              N
+            </li>
+            <li class="ghost">
+              &nbsp;
+            </li>
+            <li>L</li>
+            <li class="ghost">
+              A
+            </li>
+            <li class="ghost">
+              B
+            </li>
+            <li class="ghost">
+              S
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -13,9 +50,21 @@
 export default {
   name: 'Splash',
   mounted () {
-    setTimeout(() => {
-      this.$router.push({ name: 'Splash' })
-    }, 1000)
+    this.playAnimation()
+    // setTimeout(() => {
+    // }, 3000)
+  },
+  methods: {
+    playAnimation () {
+      let dom_element = this.$refs.text
+      let self = this
+      setTimeout(() => {
+        dom_element.classList.remove('hidden')
+        setTimeout(() => {
+          this.$router.push({ name: 'Splash' })
+        }, 2000)
+      }, 1000)
+    }
   },
   data () {
     return {}
@@ -34,14 +83,48 @@ export default {
   align-items: center;
 }
 #apptitle {
-  font-size: 2em;
+  font-size: 3.8em;
   margin-bottom: 20px;
 }
 #appauthor {
-  font-size: 1.2em;
+  font-size: 1.6em;
 }
 
 .slowtransition {
   transition: all 1s ease-in-out;
+}
+
+ul.text {
+  margin: 0;
+  padding: 0;
+}
+.text {
+  /* position: fixed;
+  top: 50%;
+  left: 50%; */
+  /* transform: translateX(-50%) translateY(-50%); */
+  list-style: none;
+  border-bottom: 0;
+}
+.text.hidden li:not(.ghost) {
+  border-bottom: 1px solid black;
+}
+.text li {
+  display: inline-block;
+  float: left;
+  /* font-weight: 700; */
+  opacity: 1;
+  transition: all 2s ease-in-out;
+  max-width: 2em;
+}
+.text.hidden li.spaced {
+  padding-left: 0;
+}
+.text li.spaced {
+  padding-left: 0.5em;
+}
+.text.hidden li.ghost {
+  opacity: 0;
+  max-width: 0;
 }
 </style>

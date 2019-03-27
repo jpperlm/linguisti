@@ -33,4 +33,17 @@ body {
   align-items: center;
   height: 100%;
 }
+@media only screen and (min-width: 600px) and (max-width: 1400px) {
+  #linguisti-container {
+    min-width: 600px;
+    max-width: 60%;
+    margin: auto;
+  }
+}
+@media only screen and (min-width: 1400px) {
+  #linguisti-container {
+    max-width: 800px;
+    margin: auto;
+  }
+}
 </style>

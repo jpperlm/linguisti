@@ -56,6 +56,7 @@ export default {
   },
   methods: {
     tickClock () {
+      if (this.$route.name !== 'Game') return
       if (this.time) {
         this.time--
         setTimeout(() => {
