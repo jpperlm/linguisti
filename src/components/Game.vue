@@ -1,38 +1,38 @@
 <template>
   <div id="linguisti-container" v-on:click="reFocus">
-    <h1>Linguisti</h1>
-    <div v-if="typeof time !== 'undefined'">{{ time }}</div>
-    <template>
-      <div id="scorecontainer">{{ score }}</div>
-      <div id="promptcontainer">{{ character_native }}</div>
-      <div id="inputcontainer">
-        <input
-          id="gameinput"
-          v-model="entry"
-          ref="typebox"
-          type="text"
-          autocomplete="off"
-          autofill="none"
-        />
-        <div id="clear-btn" v-on:click="entry = ''">
-          clear
-        </div>
-        <div id="skip-btn" v-on:click="randomizeNewLetterIndex(true, false)">
-          skip
-        </div>
+    <div id="scorecontainer">{{ score }}</div>
+    <div id="promptcontainer">{{ character_native }}</div>
+    <div v-if="typeof time !== 'undefined'">
+      {{ time }}
+    </div>
+    <div id="inputcontainer">
+      <input
+        id="gameinput"
+        v-model="entry"
+        ref="typebox"
+        type="text"
+        autocomplete="off"
+        autofill="none"
+        placeholder="Enter the translation..."
+      />
+      <div id="clear-btn" v-on:click="entry = ''">
+        clear
       </div>
+      <div id="skip-btn" v-on:click="randomizeNewLetterIndex(true, false)">
+        skip
+      </div>
+    </div>
 
-      <div
-        id="prevletter-container"
-        v-if="typeof prevLetterIndex !== 'undefined'"
-      >
-        <div style="width:100%;">Previous Letter</div>
-        <div>{{ prev_character_native }}</div>
-        <div>{{ prev_character_english }}</div>
-      </div>
-      <!-- <div>{{ character_english }}</div> -->
-      <!-- <div v-if="language">{{ characters }}</div> -->
-    </template>
+    <div
+      id="prevletter-container"
+      v-if="typeof prevLetterIndex !== 'undefined'"
+    >
+      <div style="width:100%;">Previous Letter</div>
+      <div>{{ prev_character_native }}</div>
+      <div>{{ prev_character_english }}</div>
+    </div>
+    <!-- <div>{{ character_english }}</div> -->
+    <!-- <div v-if="language">{{ characters }}</div> -->
   </div>
 </template>
 
@@ -140,7 +140,7 @@ export default {
       letterIndex: undefined,
       prevLetterIndex: undefined,
       time: undefined,
-      gameLength: 60,
+      gameLength: 8,
       history: []
     }
   }
@@ -149,11 +149,7 @@ export default {
 
 <style scoped>
 #linguisti-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  height: 100%;
+  height: 50vh;
 }
 #gameinput {
   height: 5vh;
@@ -163,6 +159,11 @@ export default {
   color: #2419cc;
   margin-bottom: 5px;
   width: 100%;
+}
+#gameinput::placeholder {
+  font-size: 1em;
+  font-weight: normal;
+  opacity: 0.7;
 }
 #scorecontainer {
   margin-top: 25px;
@@ -189,6 +190,7 @@ export default {
   flex-direction: row;
   flex-wrap: wrap;
 }
+
 #clear-btn,
 #skip-btn {
   width: 50%;

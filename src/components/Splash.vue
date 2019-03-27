@@ -70,13 +70,6 @@ export default {
 </script>
 
 <style scoped>
-#linguisti-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  height: 100%;
-}
 .language-btn {
   width: 100%;
   height: 10vh;

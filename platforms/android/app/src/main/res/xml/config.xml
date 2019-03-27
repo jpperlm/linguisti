@@ -21,5 +21,6 @@
     <allow-intent href="geo:*" />
     <allow-intent href="market:*" />
     <preference name="loglevel" value="DEBUG" />
+    <preference name="SplashScreenDelay" value="100" />
     <preference name="KeyboardDisplayRequiresUserAction" value="false" />
 </widget>

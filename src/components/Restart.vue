@@ -146,8 +146,9 @@ export default {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   font-size: 1.6em;
-  margin-bottom: 10px;
+  padding: 5px;
   font-weight: bolder;
+  border-top: 1px solid #e4d7d7;
 }
 #recap-header {
   font-size: 1.8em;

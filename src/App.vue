@@ -31,7 +31,7 @@ body {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  height: 100%;
+  height: 100vh;
 }
 @media only screen and (min-width: 600px) and (max-width: 1400px) {
   #linguisti-container {
