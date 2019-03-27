@@ -140,7 +140,7 @@ export default {
       letterIndex: undefined,
       prevLetterIndex: undefined,
       time: undefined,
-      gameLength: 8,
+      gameLength: 60,
       history: []
     }
   }
