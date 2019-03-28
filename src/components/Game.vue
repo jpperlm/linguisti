@@ -47,7 +47,7 @@ import { mapState } from 'vuex'
 export default {
   name: 'Game',
   created () {
-    if (!this.language) {
+    if (!this.language || !this.game) {
       this.$router.push({ name: 'Splash' })
     }
   },
@@ -114,6 +114,7 @@ export default {
   computed: {
     ...mapState({
       language: state => state.languageStore.language,
+      game: state => state.gameStore.game,
       characters: state => {
         if (!state.languageStore.language) return []
         let lang = state.languageStore.language.key
