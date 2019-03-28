@@ -12,6 +12,8 @@
         placeholder="Enter the translation..."
         pattern="[A-Za-z]*"
       />
+    </div>
+    <div id="actions-container">
       <div id="clear-btn" v-on:click="entry = ''">
         clear
       </div>
@@ -189,8 +191,9 @@ export default {
   flex-wrap: wrap;
   justify-content: space-evenly;
   align-items: center;
-  font-size: 2em;
+  font-size: 1.5em;
   min-width: 40%;
+  margin-top: 3%;
 }
 #inputcontainer {
   display: flex;
@@ -199,6 +202,14 @@ export default {
   max-width: 250px;
   min-height: 25px;
   height: 5vh;
+}
+#actions-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 250px;
+  min-height: 25px;
+  margin-top: 3%;
 }
 
 #clear-btn,
