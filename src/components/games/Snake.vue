@@ -351,9 +351,11 @@ export default {
 <style scoped>
 #linguisti-container {
   height: 100vh;
+  width: 100vw;
   overflow: hidden;
   position: fixed;
   top: 0;
+  touch-action: none;
 }
 #snake-game-board-container {
   width: 95%;
