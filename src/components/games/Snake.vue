@@ -76,6 +76,7 @@ export default {
   beforeDestroy () {
     window.removeEventListener('keyup', this.changeDirection)
     window.removeEventListener('touchmove', this.mouse)
+    window.removeEventListener('touchend', this.resetMouse)
     window.removeEventListener('mousemove', this.mouse)
   },
   mounted () {
@@ -94,17 +95,12 @@ export default {
     this.moveSnakeHead(Math.round((tiles * tiles) / 2 + tiles / 2))
     window.addEventListener('keyup', this.changeDirection)
     window.addEventListener('touchmove', this.mouse)
+    window.addEventListener('touchend', this.resetMouse)
     window.addEventListener('mousemove', this.mouse)
 
     this.startSnake()
   },
   methods: {
-    handleTouchStart (e) {
-      debugger
-    },
-    drag (e) {
-      debugger
-    },
     mouse (e) {
       if (!this.xDown && !this.yDown) {
         this.xDown = e.clientX || e.targetTouches[0].clientX
@@ -313,9 +309,9 @@ export default {
         // return
       }
       if (element.scrollWidth > element.offsetWidth) {
-        xA = -0.5
+        xA = -1
       } else {
-        xA = 0.5
+        xA = 1
       }
       if (element.scrollHeight > element.offsetHeight) {
         return
