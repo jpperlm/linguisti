@@ -54,28 +54,23 @@ export default {
   name: 'Restart',
   props: {
     score: {
-      type: Number,
-      required: true
+      type: Number
     },
     lastLetterEnglish: {
-      type: String,
-      required: true
+      type: String
     },
     lastLetterNative: {
-      type: String,
-      required: true
+      type: String
     },
     language: {
-      type: Object,
-      required: true
+      type: Object
     },
     history: {
-      type: Array,
-      required: true
+      type: Array
     }
   },
   created () {
-    if (!this.language) {
+    if (!this.language || !this.history) {
       this.$router.push({ name: 'Splash' })
     }
   },

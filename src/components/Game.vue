@@ -9,11 +9,14 @@
 
 <script>
 import { mapState } from 'vuex'
-import type from '@/components/games/Type'
+import typing from '@/components/games/Type'
+import snake from '@/components/games/Snake'
+
 export default {
   name: 'Game',
   components: {
-    type
+    typing,
+    snake
   },
   created () {
     if (!this.language || !this.game) {
