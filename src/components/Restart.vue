@@ -129,7 +129,8 @@ export default {
   cursor: pointer;
 }
 #recap-container {
-  overflow: scroll;
+  overflow-y: scroll;
+  overflow-x: hidden;
   max-height: 40vh;
   margin-bottom: 5%;
   width: 40%;
