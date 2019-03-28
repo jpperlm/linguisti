@@ -102,6 +102,8 @@ export default {
   },
   methods: {
     mouse (e) {
+      e.preventDefault()
+      e.stopPropagation()
       if (!this.xDown && !this.yDown) {
         this.xDown = e.clientX || e.targetTouches[0].clientX
         this.yDown = e.clientY || e.targetTouches[0].clientY
@@ -349,6 +351,7 @@ export default {
 <style scoped>
 #linguisti-container {
   height: 100vh;
+  overflow: hidden;
 }
 #snake-game-board-container {
   width: 95%;
