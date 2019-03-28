@@ -48,7 +48,7 @@ export default {
         this.$nextTick(() => {
           this.$router.push({ name: 'Game' })
         })
-      }, 1000)
+      }, 700)
     }
   },
   computed: {

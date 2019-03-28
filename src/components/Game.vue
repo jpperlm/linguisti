@@ -1,9 +1,6 @@
 <template>
   <div id="linguisti-container" v-on:click="reFocus">
     <div id="promptcontainer">{{ character_native }}</div>
-    <div id="timercontainer" v-if="typeof time !== 'undefined'">
-      {{ time }}
-    </div>
     <div id="inputcontainer">
       <input
         id="gameinput"
@@ -13,11 +10,17 @@
         autocomplete="off"
         autofill="none"
         placeholder="Enter the translation..."
+        pattern="[A-Za-z]*"
       />
       <div id="clear-btn" v-on:click="entry = ''">
         clear
       </div>
-      <div id="scorecontainer">{{ score }}</div>
+
+      <div id="timercontainer">
+        <div id="timer" v-if="typeof time !== 'undefined'">
+          {{ time }}
+        </div>
+      </div>
       <div id="skip-btn" v-on:click="randomizeNewLetterIndex(true, false)">
         skip
       </div>
@@ -149,27 +152,29 @@ export default {
 
 <style scoped>
 #linguisti-container {
-  height: 50vh;
+  height: 100vh;
 }
 #gameinput {
-  height: 5vh;
   font-size: 1.4em;
   text-align: center;
   font-weight: bolder;
   color: #2419cc;
   margin-bottom: 5px;
   width: 100%;
+  height: 100%;
 }
 #gameinput::placeholder {
   font-size: 1em;
   font-weight: normal;
   opacity: 0.7;
 }
-#scorecontainer {
-  margin-top: 25px;
-  margin-bottom: 25px;
-  font-size: 1.8em;
+#timercontainer {
+  margin-top: 10px;
   width: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 #promptcontainer {
   margin-top: 3%;
@@ -191,6 +196,9 @@ export default {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  max-width: 250px;
+  min-height: 25px;
+  height: 5vh;
 }
 
 #clear-btn,
@@ -198,7 +206,7 @@ export default {
   width: 25%;
   margin-top: 10px;
 }
-#timercontainer {
+#timer {
   margin-bottom: 3%;
   font-size: 1.2em;
   width: 1.5em;

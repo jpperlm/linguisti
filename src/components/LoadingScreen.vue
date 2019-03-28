@@ -1,5 +1,5 @@
 <template>
-  <div id="loading">
+  <div ref="loading" id="loading">
     <div ref="apptitle" id="apptitle" class="slowtransition">
       Linguisti
     </div>
@@ -57,7 +57,9 @@ export default {
   methods: {
     playAnimation () {
       let domEelement = this.$refs.text
+      let bg = this.$refs.loading
       setTimeout(() => {
+        bg.style.background = '#24ffff'
         domEelement.classList.remove('hidden')
         setTimeout(() => {
           this.$router.push({ name: 'Splash' })
@@ -80,6 +82,8 @@ export default {
   justify-content: center;
   align-content: center;
   align-items: center;
+  transition: all 1s ease-in-out;
+  background: inherit;
 }
 #apptitle {
   font-size: 3.8em;

@@ -26,7 +26,7 @@
     <author email="jason@perlman.dev" href="http://www.perlmanlabs.com/">
         Jason Perlman (PerlmanLabs)
     </author>
-    <content src="www/dist/index.html" />
+    <content src="dist/index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -49,4 +49,5 @@
     <preference name="PageLength" value="0" />
     <preference name="PaginationBreakingMode" value="page" />
     <preference name="PaginationMode" value="unpaginated" />
+    <preference name="SplashScreenDelay" value="100" />
 </widget>
