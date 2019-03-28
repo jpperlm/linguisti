@@ -80,6 +80,7 @@ export default {
     window.removeEventListener('mousemove', this.mouse)
   },
   mounted () {
+    document.body.requestFullscreen()
     let container = this.$refs.snake_game_board_container
     let width = container.offsetWidth
     let height = container.offsetHeight
