@@ -281,9 +281,12 @@ export default {
         newle || !this.current_letter
           ? undefined
           : this.$refs.actualSnakeHead[0].style.fontSize.split('px')[0]
+
       this.$set(this.board, head, 1)
-      if (!this.current_letter) return
-      this.fit(this.$refs.actualSnakeHead[0], undefined, prevSize)
+      this.$nextTick(() => {
+        if (!this.current_letter) return
+        this.fit(this.$refs.actualSnakeHead[0], undefined, prevSize)
+      })
     },
     letterCollected (bool, letter) {
       this.history.push({
@@ -307,7 +310,7 @@ export default {
       let xA
       if (prev) {
         element.style.fontSize = `${prev}px`
-        return
+        // return
       }
       if (element.scrollWidth > element.offsetWidth) {
         xA = -0.5
