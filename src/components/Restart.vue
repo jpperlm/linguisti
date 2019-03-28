@@ -39,11 +39,10 @@
     >
       Restart
     </div>
-    <div
-      v-on:click="$router.push({ name: 'Splash' })"
-      id="changelanguage-btn"
-      class="fake-button"
-    >
+    <div v-on:click="$router.push({ name: 'Games' })" class="fake-button">
+      Change Game
+    </div>
+    <div v-on:click="$router.push({ name: 'Splash' })" class="fake-button">
       Change Language
     </div>
   </div>
