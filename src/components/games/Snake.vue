@@ -80,7 +80,6 @@ export default {
     window.removeEventListener('mousemove', this.mouse)
   },
   mounted () {
-    document.body.requestFullscreen()
     let container = this.$refs.snake_game_board_container
     let width = container.offsetWidth
     let height = container.offsetHeight
@@ -353,6 +352,8 @@ export default {
 #linguisti-container {
   height: 100vh;
   overflow: hidden;
+  position: fixed;
+  top: 0;
 }
 #snake-game-board-container {
   width: 95%;
