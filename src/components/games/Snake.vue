@@ -113,7 +113,7 @@ export default {
       var yUp = e.clientY || e.targetTouches[0].clientY
       var xDiff = this.xDown - xUp
       var yDiff = this.yDown - yUp
-      if (Math.abs(xDiff) > Math.abs(yDiff) && Math.abs(xDiff) > 20) {
+      if (Math.abs(xDiff) > Math.abs(yDiff) && Math.abs(xDiff) > 10) {
         /* most significant */
         if (xDiff > 0) {
           this.changeDirection({ key: 'ArrowLeft' })
@@ -121,7 +121,7 @@ export default {
           this.changeDirection({ key: 'ArrowRight' })
         }
         this.resetMouse()
-      } else if (Math.abs(yDiff) > 20) {
+      } else if (Math.abs(yDiff) > 10) {
         if (yDiff > 0) {
           this.changeDirection({ key: 'ArrowUp' })
         } else {
