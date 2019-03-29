@@ -31,7 +31,7 @@ export default {
     optionClicked (item, index) {
       if (this.stopSelect) return
       this.stopSelect = true
-      this.$refs.listoptions[index].style.background = this.color
+      this.$refs.listoptions[index].classList.add('primary-color')
       setTimeout(() => {
         let payload = {
           item,
@@ -62,7 +62,7 @@ export default {
 .list-item {
   width: 100%;
   height: 10vh;
-  border-top: 1px solid #e4d7d7;
+  border-top: 1px solid #ff2457;
   color: black;
   display: flex;
   flex-direction: row;
@@ -71,7 +71,7 @@ export default {
   transition: all 0.5s ease-in-out;
 }
 .list-item:last-child {
-  border-bottom: 1px solid #e4d7d7;
+  border-bottom: 1px solid #ff2457;
 }
 .list-item:hover {
   cursor: pointer;
@@ -104,6 +104,7 @@ export default {
 .image {
   height: 5.5vh;
   width: 8vh;
+  box-shadow: 7px 5px 5px #3a4a4d;
 }
 /* .list-btn.toggleon {
   background: #21ef08;

@@ -24,6 +24,9 @@ body {
   height: 100vh;
   width: 100vw;
   background: #f9fbfb;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
   /* margin-top: 3%; */
 }
 #linguisti-container {
@@ -47,7 +50,7 @@ body {
   }
 }
 .primary-color {
-  background: #24ffa1;
+  background: #24ffff;
 }
 .accent-color-1 {
   background: #ff2457;

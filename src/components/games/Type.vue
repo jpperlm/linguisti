@@ -146,6 +146,9 @@ export default {
   margin-bottom: 5px;
   width: 100%;
   height: 100%;
+  -webkit-user-select: none; /* disable selection/Copy of UIWebView */
+  -webkit-touch-callout: none;
+  user-select: none;
 }
 #gameinput::placeholder {
   font-size: 1em;

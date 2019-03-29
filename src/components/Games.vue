@@ -1,16 +1,15 @@
 <template>
   <div id="linguisti-container">
-    <h1>Linguisti</h1>
-    <template>
+    <div class="title-header">
       <h2>Select A Game</h2>
-      <OptionList
-        :showMax="6"
-        :list="games"
-        :keyMap="keyMap"
-        color="#21ef08"
-        @optionSelected="optionSelected"
-      />
-    </template>
+    </div>
+    <OptionList
+      :showMax="6"
+      :list="games"
+      :keyMap="keyMap"
+      color="#21ef08"
+      @optionSelected="optionSelected"
+    />
   </div>
 </template>
 
@@ -55,4 +54,8 @@ export default {
 </script>
 
 <style scoped>
+.title-header {
+  width: 100%;
+  margin-bottom: 10px;
+}
 </style>

@@ -1,5 +1,6 @@
 <template>
   <div id="linguisti-container">
+    <div id="score-container">{{ score }}</div>
     <div id="snake-game-board-container" ref="snake_game_board_container">
       <div id="snake-game-board" class="primary-color" ref="snake_game_board">
         <div
@@ -107,6 +108,10 @@ export default {
       e.preventDefault()
       e.stopPropagation()
       if (!this.xDown && !this.yDown) {
+        if (
+          !(e.clientX || e.targetTouches[0].clientX) ||
+          !(e.clientY || e.targetTouches[0].clientY)
+        ) { return }
         this.xDown = e.clientX || e.targetTouches[0].clientX
         this.yDown = e.clientY || e.targetTouches[0].clientY
         return
@@ -159,7 +164,7 @@ export default {
     startSnake (b) {
       if (this.pause) return
       this.counter++
-      if (this.counter > 15) {
+      if (this.counter > 10) {
         this.addLetter()
         this.counter = 0
       }
@@ -220,6 +225,7 @@ export default {
     },
     moveSnakeHead (pos) {
       if (this.border_counter === 0) {
+        if (!this.$refs.snake_game_board) return
         this.$refs.snake_game_board.classList.remove('border-glow-green')
         this.$refs.snake_game_board.classList.remove('border-glow-red')
       } else if (this.border_counter > 0) {
@@ -371,6 +377,7 @@ export default {
 #snake-game-board {
   display: grid;
   border: 1px solid black;
+  /* box-shadow: 10px 10px 10px #ff2457; */
 }
 .snakehead.east {
   border-top-right-radius: 20px;
@@ -400,10 +407,10 @@ export default {
   height: 100%;
 }
 .border-glow-red {
-  border: 3px solid red;
+  border: 3px solid #ff2457;
   outline: none;
-  border-color: red;
-  box-shadow: 0 0 50px 15px red;
+  border-color: #ff2457;
+  box-shadow: 0 0 50px 15px #ff2457;
   border-radius: 7px;
 }
 .border-glow-green {
@@ -426,7 +433,10 @@ export default {
   width: 100%;
 }
 .lettersquare {
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   white-space: nowrap;
   width: 100%;
   height: 100%;
@@ -441,7 +451,7 @@ export default {
   /* font-size: 2em; */
   /* line-height: 1em; */
 }
-.actualSnakeHead{
+.actualSnakeHead {
   height: 100%;
   width: 100%;
   vertical-align: middle;
@@ -449,5 +459,13 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+#score-container {
+  height: 10vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-end;
+  font-size: 3em;
 }
 </style>
