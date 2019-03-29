@@ -21,7 +21,7 @@
         >
           <div
             v-if="fullsnake[fullsnake.length - 1] === i"
-            style="height:100%;width:100%;"
+            class="actualSnakeHead"
             ref="actualSnakeHead"
           >
             {{ current_letter_eng }}
@@ -440,5 +440,14 @@ export default {
 .tile {
   /* font-size: 2em; */
   /* line-height: 1em; */
+}
+.actualSnakeHead{
+  height: 100%;
+  width: 100%;
+  vertical-align: middle;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 </style>
