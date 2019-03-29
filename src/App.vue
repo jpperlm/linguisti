@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" class="primary-color white-text">
     <!-- <img src="./assets/logo.png"> -->
     <router-view />
   </div>
@@ -20,10 +20,10 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  /* color: #2c3e50; */
   height: 100vh;
   width: 100vw;
-  background: #f9fbfb;
+  /* background: #f9fbfb; */
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -35,6 +35,7 @@ body {
   justify-content: flex-start;
   align-items: center;
   height: 100vh;
+  width: 90vw;
 }
 @media only screen and (min-width: 600px) and (max-width: 1400px) {
   #linguisti-container {
@@ -50,18 +51,37 @@ body {
   }
 }
 .primary-color {
-  background: #24ffff;
+  background: #1f1c2a !important;
+}
+.primary-lighter {
+  background: #2c2541 !important;
+}
+.primary-lightest {
+  background: #392e5c !important;
+}
+.secondary-color {
+  background: #e80012 !important;
 }
 .accent-color-1 {
-  background: #ff2457;
+  background: #ff2457 !important;
 }
 .accent-color-2 {
-  background: #ffa724;
+  background: #24ffff !important;
 }
 .dark-grey-custom {
-  background: #3a4a4d;
+  background: #3a4a4d !important;
 }
 .light-grey-custom {
-  background: #f9fbfb;
+  background: #f9fbfb !important;
+}
+
+.white-text {
+  color: #fdfdfe;
+}
+.light-grey-text {
+  color: #f9fbfb;
+}
+.secondary-color-text {
+  color: #e80012;
 }
 </style>

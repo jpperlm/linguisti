@@ -1,7 +1,7 @@
 <template>
   <div id="list-container">
     <div
-      class="list-item"
+      class="list-item primary-lighter"
       v-for="(item, index) in slicedOptions"
       :key="item.key"
       v-on:click="optionClicked(item, index)"
@@ -31,7 +31,8 @@ export default {
     optionClicked (item, index) {
       if (this.stopSelect) return
       this.stopSelect = true
-      this.$refs.listoptions[index].classList.add('primary-color')
+      this.$refs.listoptions[index].classList.remove('primary-lighter')
+      this.$refs.listoptions[index].classList.add('accent-color-2')
       setTimeout(() => {
         let payload = {
           item,
@@ -62,20 +63,23 @@ export default {
 .list-item {
   width: 100%;
   height: 10vh;
-  border-top: 1px solid #ff2457;
-  color: black;
+  /* border-top: 1px solid #ff2457; */
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   transition: all 0.5s ease-in-out;
+  border-radius: 5px;
+  margin-bottom: 5px;
 }
 .list-item:last-child {
-  border-bottom: 1px solid #ff2457;
+  /* border-bottom: 1px solid #ff2457; */
 }
 .list-item:hover {
   cursor: pointer;
-  background: #24ffff;
+  background: #392e5c;
+  color: #e80012;
+  /* font-style: italic; */
 }
 .list-label-container {
   width: 50%;
@@ -104,7 +108,8 @@ export default {
 .image {
   height: 5.5vh;
   width: 8vh;
-  box-shadow: 7px 5px 5px #3a4a4d;
+  box-shadow: 4px 3px 3px #e80012;
+  border-radius: 3px;
 }
 /* .list-btn.toggleon {
   background: #21ef08;

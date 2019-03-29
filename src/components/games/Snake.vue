@@ -2,17 +2,21 @@
   <div id="linguisti-container">
     <div id="score-container">{{ score }}</div>
     <div id="snake-game-board-container" ref="snake_game_board_container">
-      <div id="snake-game-board" class="primary-color" ref="snake_game_board">
+      <div
+        id="snake-game-board"
+        class="primary-lightest"
+        ref="snake_game_board"
+      >
         <div
           v-for="(r, i) in new Array(tiles * tiles)"
           :key="`snaketile${i}`"
           ref="letters_on_board"
           :class="{
             snakehead: fullsnake[fullsnake.length - 1] === i,
-            'accent-color-1': fullsnake[fullsnake.length - 1] === i,
+            'secondary-color': fullsnake[fullsnake.length - 1] === i,
             lettersquare: Array.isArray(board[i]),
             snakebody: board[i] === 2,
-            'accent-color-2': board[i] === 2,
+            'dark-grey-custom': board[i] === 2,
             east: direction === 'e' && fullsnake[fullsnake.length - 1] === i,
             west: direction === 'w' && fullsnake[fullsnake.length - 1] === i,
             south: direction === 's' && fullsnake[fullsnake.length - 1] === i,
@@ -111,7 +115,9 @@ export default {
         if (
           !(e.clientX || e.targetTouches[0].clientX) ||
           !(e.clientY || e.targetTouches[0].clientY)
-        ) { return }
+        ) {
+          return
+        }
         this.xDown = e.clientX || e.targetTouches[0].clientX
         this.yDown = e.clientY || e.targetTouches[0].clientY
         return

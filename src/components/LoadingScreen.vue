@@ -1,5 +1,5 @@
 <template>
-  <div ref="loading" id="loading">
+  <div ref="loading" id="loading" class="secondary-color">
     <div ref="apptitle" id="apptitle" class="slowtransition">
       Linguisti
     </div>
@@ -59,7 +59,10 @@ export default {
       let domEelement = this.$refs.text
       let bg = this.$refs.loading
       setTimeout(() => {
-        bg.style.background = '#24ffff'
+        bg.classList.remove('secondary-color')
+        bg.classList.add('primary-color')
+        this.$refs.apptitle.classList.add('secondary-color-text')
+        domEelement.classList.add('secondary-color-text')
         domEelement.classList.remove('hidden')
         setTimeout(() => {
           this.$router.push({ name: 'Splash' })
@@ -83,7 +86,6 @@ export default {
   align-content: center;
   align-items: center;
   transition: all 1s ease-in-out;
-  background: inherit;
 }
 #apptitle {
   font-size: 3.8em;
@@ -110,14 +112,14 @@ ul.text {
   border-bottom: 0;
 }
 .text.hidden li:not(.ghost) {
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #fdfdfe;
 }
 .text li {
-  display: inline-block;
   float: left;
   /* font-weight: 700; */
   opacity: 1;
-  transition: all 2s ease-in-out;
+  transition: opacity 1s ease-in-out, max-width 2s ease-in-out,
+    color 1s ease-in-out;
   max-width: 2em;
 }
 .text.hidden li.spaced {
