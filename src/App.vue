@@ -23,7 +23,7 @@ body {
   color: #2c3e50;
   height: 100vh;
   width: 100vw;
-  background: #f9f9f9;
+  background: #f9fbfb;
   /* margin-top: 3%; */
 }
 #linguisti-container {
@@ -45,5 +45,20 @@ body {
     max-width: 800px;
     margin: auto;
   }
+}
+.primary-color {
+  background: #24ffa1;
+}
+.accent-color-1 {
+  background: #ff2457;
+}
+.accent-color-2 {
+  background: #ffa724;
+}
+.dark-grey-custom {
+  background: #3a4a4d;
+}
+.light-grey-custom {
+  background: #f9fbfb;
 }
 </style>

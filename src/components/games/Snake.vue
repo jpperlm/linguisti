@@ -1,15 +1,17 @@
 <template>
   <div id="linguisti-container">
     <div id="snake-game-board-container" ref="snake_game_board_container">
-      <div id="snake-game-board" ref="snake_game_board">
+      <div id="snake-game-board" class="primary-color" ref="snake_game_board">
         <div
           v-for="(r, i) in new Array(tiles * tiles)"
           :key="`snaketile${i}`"
           ref="letters_on_board"
           :class="{
             snakehead: fullsnake[fullsnake.length - 1] === i,
+            'accent-color-1': fullsnake[fullsnake.length - 1] === i,
             lettersquare: Array.isArray(board[i]),
             snakebody: board[i] === 2,
+            'accent-color-2': board[i] === 2,
             east: direction === 'e' && fullsnake[fullsnake.length - 1] === i,
             west: direction === 'w' && fullsnake[fullsnake.length - 1] === i,
             south: direction === 's' && fullsnake[fullsnake.length - 1] === i,
@@ -369,7 +371,6 @@ export default {
 #snake-game-board {
   display: grid;
   border: 1px solid black;
-  background-color: grey;
 }
 .snakehead.east {
   border-top-right-radius: 20px;
@@ -388,7 +389,6 @@ export default {
   border-bottom-right-radius: 20px;
 }
 .snakehead {
-  background-color: #59ffa0;
   width: 100%;
   height: 100%;
   display: inline-block;
@@ -396,7 +396,6 @@ export default {
   font-weight: bolder;
 }
 .snakebody {
-  background-color: green;
   width: 100%;
   height: 100%;
 }
@@ -408,10 +407,10 @@ export default {
   border-radius: 7px;
 }
 .border-glow-green {
-  border: 3px solid green;
+  border: 3px solid #00ff54;
   outline: none;
-  border-color: green;
-  box-shadow: 0 0 50px 15px green;
+  border-color: #00ff54;
+  box-shadow: 0 0 50px 15px #00ff54;
   border-radius: 7px;
 }
 .letter-container {
@@ -434,7 +433,8 @@ export default {
   letter-spacing: -2px;
   font-weight: bolder;
   font-size: 8px;
-  background-color: white;
+  background-color: #f9fbfb;
+  color: #3a4a4d;
   /* border:1px solid grey; */
 }
 .tile {
