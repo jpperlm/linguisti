@@ -23,7 +23,7 @@ export default {
     OptionList
   },
   created () {
-    if (!this.language) {
+    if (!this.language || !this.itemKey) {
       this.$router.push({ name: 'Splash' })
     }
   },
@@ -38,8 +38,15 @@ export default {
   },
   computed: {
     ...mapState({
-      games: state => state.gameStore.games,
-      language: state => state.languageStore.language
+      games: state =>
+        state.gameStore.games.filter(game => {
+          return (
+            game.allowFor.includes('all') ||
+            game.allowFor.includes(state.languageStore.itemKey.key)
+          )
+        }),
+      language: state => state.languageStore.language,
+      itemKey: state => state.languageStore.itemKey
     })
   },
   data () {

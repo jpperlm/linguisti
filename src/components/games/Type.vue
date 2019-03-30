@@ -52,7 +52,10 @@ export default {
   watch: {
     entry (n) {
       if (typeof this.letterIndex === 'undefined') return
-      if (n.toLowerCase() === this.character_english) {
+      if (
+        n.toLowerCase().replace(' ', '') ===
+        this.character_english.toLowerCase().replace(' ', '')
+      ) {
         this.score++
         this.entry = ''
         this.randomizeNewLetterIndex(true, true)

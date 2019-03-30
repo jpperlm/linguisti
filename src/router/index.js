@@ -3,7 +3,9 @@ import Router from 'vue-router'
 import Splash from '@/components/Splash'
 import Loading from '@/components/LoadingScreen'
 import Game from '@/components/Game'
+import LanguageOptions from '@/components/LanguageOptions'
 import Games from '@/components/Games'
+
 import Restart from '@/components/Restart'
 
 Vue.use(Router)
@@ -20,6 +22,11 @@ export default new Router({
       path: '/splash',
       name: 'Splash',
       component: Splash
+    },
+    {
+      path: '/languageoptions',
+      name: 'LanguageOptions',
+      component: LanguageOptions
     },
     {
       path: '/game',

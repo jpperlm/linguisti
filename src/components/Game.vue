@@ -19,7 +19,7 @@ export default {
     snake
   },
   created () {
-    if (!this.language || !this.game) {
+    if (!this.language || !this.game || !this.itemKey) {
       this.$router.push({ name: 'Splash' })
     }
   },
@@ -41,10 +41,22 @@ export default {
     ...mapState({
       language: state => state.languageStore.language,
       game: state => state.gameStore.game,
+      itemKey: state => state.languageStore.itemKey,
       characters: state => {
-        if (!state.languageStore.language) return []
-        let lang = state.languageStore.language.key
-        return state.languageStore.characterMap[lang]
+        if (!state.languageStore.language || !state.languageStore.itemKey) {
+          return []
+        }
+        let chars =
+          // eslint-disable-next-line
+          state.languageStore.languageOptions[state.languageStore.language.key][
+            state.languageStore.itemKey.key
+          ]
+        if (state.languageStore.itemKey.useAlt) {
+          return chars.map(c => {
+            return [c[0], c[2]]
+          })
+        }
+        return chars
       }
     })
   },

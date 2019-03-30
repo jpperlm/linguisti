@@ -11,3 +11,6 @@ export function someMutation (state) {
 export const setLanguage = (state, payload) => {
   state.language = payload
 }
+export const setItemKey = (state, payload) => {
+  state.itemKey = payload
+}

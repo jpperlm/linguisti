@@ -16,7 +16,11 @@
         </div>
       </div>
       <div class="list-image-container">
-        <img class="image" :src="require(`@/assets/${item.img}`)" />
+        <img
+          v-if="item.img"
+          class="image"
+          :src="require(`@/assets/${item.img}`)"
+        />
       </div>
     </div>
   </div>

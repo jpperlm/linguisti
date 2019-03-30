@@ -1,11 +1,11 @@
 <template>
   <div id="linguisti-container">
     <div class="title-header">
-      <h2>Select A Language</h2>
+      <h2>Select An Option</h2>
     </div>
     <OptionList
       :showMax="6"
-      :list="languages"
+      :list="opts"
       :keyMap="keyMap"
       color="#21ef08"
       @optionSelected="optionSelected"
@@ -18,30 +18,45 @@ import { mapState } from 'vuex'
 import OptionList from '@/components/common/OptionList'
 
 export default {
-  name: 'Splash',
+  name: 'LanguageOptions',
   components: {
     OptionList
+  },
+  created () {
+    if (!this.language) {
+      this.$router.push({ name: 'Splash' })
+    }
   },
   mounted () {},
   methods: {
     optionSelected (payload) {
-      this.$store.commit('languageStore/setLanguage', payload.item)
+      debugger
+      this.$store.commit('languageStore/setItemKey', payload.item)
       this.$nextTick(() => {
-        this.$router.push({ name: 'LanguageOptions' })
+        this.$router.push({ name: 'Games' })
       })
     }
   },
   computed: {
     ...mapState({
-      languages: state => state.languageStore.languages
+      language: state => state.languageStore.language,
+      opts: state => {
+        let keys = Object.keys(
+          state.languageStore.languageOptions[state.languageStore.language.key]
+        )
+        return state.languageStore.itemOptions.filter(item => {
+          return keys.includes(item.key)
+        })
+      }
     })
   },
   data () {
     return {
       keyMap: {
-        main: 'alphabet',
-        alternative: 'language',
-        sub: 'native'
+        main: 'label',
+        sub: 'sub'
+        // alternative: 'language',
+        // sub: 'native'
       }
     }
   }
