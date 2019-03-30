@@ -16,7 +16,7 @@
             'secondary-color': fullsnake[fullsnake.length - 1] === i,
             lettersquare: Array.isArray(board[i]),
             snakebody: board[i] === 2,
-            'dark-grey-custom': board[i] === 2,
+            'accent-color-2': board[i] === 2,
             east: direction === 'e' && fullsnake[fullsnake.length - 1] === i,
             west: direction === 'w' && fullsnake[fullsnake.length - 1] === i,
             south: direction === 's' && fullsnake[fullsnake.length - 1] === i,

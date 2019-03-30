@@ -27,8 +27,8 @@
         >
           <!-- <div v-if="item.correct" class="correctanswer">&#x2713;</div>
         <div v-else class="wronganswer">&#x2717;</div> -->
-          <div>{{ item['0'] }}</div>
-          <div>{{ item['1'] }}</div>
+          <div class="flex-center">{{ item['0'] }}</div>
+          <div class="flex-center">{{ item['1'] }}</div>
         </div>
       </div>
       <div
@@ -152,7 +152,7 @@ export default {
   overflow-x: hidden;
   max-height: 40vh;
   margin-bottom: 5%;
-  width: 40%;
+  width: 70%;
   z-index: 2;
   min-height: 20vh;
 }
@@ -170,6 +170,12 @@ export default {
   padding: 5px;
   font-weight: bolder;
   border-top: 1px solid #e80012;
+}
+.flex-center {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 #recap-header {
   font-size: 1.8em;
