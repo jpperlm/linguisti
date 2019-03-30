@@ -50,6 +50,12 @@ body {
     margin: auto;
   }
 }
+.rounded {
+  border-radius: 15px;
+}
+.clickable {
+  cursor: pointer;
+}
 .primary-color {
   background: #1f1c2a !important;
 }
@@ -62,9 +68,7 @@ body {
 .secondary-color {
   background: #e80012 !important;
 }
-.accent-color-1 {
-  background: #ff2457 !important;
-}
+
 .accent-color-2 {
   background: #24ffff !important;
 }
@@ -83,5 +87,8 @@ body {
 }
 .secondary-color-text {
   color: #e80012;
+}
+.accent-color-2-text {
+  color: #24ffff !important;
 }
 </style>

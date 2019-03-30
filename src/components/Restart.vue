@@ -1,14 +1,20 @@
 <template>
   <div id="linguisti-container">
-    <div id="gameovermessage">{{ msg }}</div>
+    <div id="gameovermessage" class="secondary-color-text">{{ msg }}</div>
     <template v-if="!recap">
-      <div id="final-score">Score: {{ score }}</div>
-      <div id="finallettercontainer">
+      <div id="final-score" class="secondary-color-text">
+        Score: {{ score }}
+      </div>
+      <div id="finallettercontainer" class="primary-lighter rounded ">
         <div style="width:100%;">Final Character</div>
         <div>{{ lastLetterNative }}</div>
         <div>{{ lastLetterEnglish }}</div>
       </div>
-      <div id="recap-btn" class="fake-button" v-on:click="toggleRecap()">
+      <div
+        id="recap-btn"
+        class="fake-button rounded primary-lighter clickable accent-color-2-text"
+        v-on:click="toggleRecap()"
+      >
         Game Recap
       </div>
     </template>
@@ -27,7 +33,11 @@
           <div>{{ item['1'] }}</div>
         </div>
       </div>
-      <div v-on:click="toggleRecap()" id="back-btn" class="fake-button">
+      <div
+        v-on:click="toggleRecap()"
+        id="back-btn"
+        class="fake-button rounded primary-lighter clickable accent-color-2-text"
+      >
         Back
       </div>
     </template>
@@ -35,14 +45,20 @@
     <div
       v-on:click="$router.push({ name: 'Game' })"
       id="restart-btn"
-      class="fake-button"
+      class="fake-button rounded primary-lighter clickable accent-color-2-text"
     >
       Restart
     </div>
-    <div v-on:click="$router.push({ name: 'Games' })" class="fake-button">
+    <div
+      v-on:click="$router.push({ name: 'Games' })"
+      class="fake-button rounded primary-lighter clickable accent-color-2-text"
+    >
       Change Game
     </div>
-    <div v-on:click="$router.push({ name: 'Splash' })" class="fake-button">
+    <div
+      v-on:click="$router.push({ name: 'Splash' })"
+      class="fake-button rounded primary-lighter clickable accent-color-2-text"
+    >
       Change Language
     </div>
   </div>
@@ -103,25 +119,35 @@ export default {
   min-width: 40%;
   margin-bottom: 5vh;
 }
+
 #gameovermessage {
   margin-top: 10%;
-  margin-bottom: 5%;
   font-size: 2.4em;
 }
 #final-score {
   font-size: 2.2em;
   margin-bottom: 5%;
+  margin-bottom: 5%;
 }
 #recap-btn {
   margin-bottom: 8%;
+  padding: 1%;
 }
 .fake-button {
   height: 4vh;
   margin: 1vh;
-  width: 80vw;
+  /* width: 80vw; */
   font-size: 1.1em;
   cursor: pointer;
+  padding: 1%;
+  width: 20vw;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
+
 #recap-container {
   overflow-y: scroll;
   overflow-x: hidden;
@@ -129,6 +155,7 @@ export default {
   margin-bottom: 5%;
   width: 40%;
   z-index: 2;
+  min-height: 20vh;
 }
 .wronganswer {
   color: #ff6556;
