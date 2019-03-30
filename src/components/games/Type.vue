@@ -13,7 +13,7 @@
         pattern="[A-Za-z]*"
       />
     </div>
-    <div id="actions-container">
+    <div id="actions-container" class="accent-color-2-text">
       <div id="clear-btn" v-on:click="entry = ''">
         clear
       </div>
@@ -53,11 +53,16 @@ export default {
     entry (n) {
       if (typeof this.letterIndex === 'undefined') return
       if (
-        n.toLowerCase().replace(' ', '') ===
-        this.character_english.toLowerCase().replace(' ', '')
+        n
+          .toLowerCase()
+          .replace(' ', '')
+          .replace('-', '') ===
+        this.character_english
+          .toLowerCase()
+          .replace(' ', '')
+          .replace('-', '')
       ) {
         this.score++
-        this.entry = ''
         this.randomizeNewLetterIndex(true, true)
       }
     }
@@ -94,6 +99,7 @@ export default {
       this.tickClock()
     },
     randomizeNewLetterIndex (record = false, correct = false) {
+      this.entry = ''
       if (record) {
         this.history.push({
           ...this.characters[this.letterIndex],
@@ -130,7 +136,7 @@ export default {
       letterIndex: undefined,
       prevLetterIndex: undefined,
       time: undefined,
-      gameLength: 60,
+      gameLength: 1,
       history: []
     }
   }
@@ -139,7 +145,7 @@ export default {
 
 <style scoped>
 #linguisti-container {
-  height: 100vh;
+  /* height: 100vh; */
 }
 #gameinput {
   font-size: 1.4em;
@@ -210,8 +216,12 @@ export default {
   font-size: 1.2em;
   width: 1.5em;
   height: 1.5em;
-  border: 1px solid #e4d7d7;
-  border-radius: 100%;
+  border: 1px solid #e80012;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  /* border-radius: 100%; */
 }
 /* @media only screen and (min-width: 768px) {
   #linguisti-container {

@@ -4,6 +4,7 @@
       <h2>Select An Option</h2>
     </div>
     <OptionList
+      v-if="opts"
       :showMax="6"
       :list="opts"
       :keyMap="keyMap"
@@ -30,7 +31,6 @@ export default {
   mounted () {},
   methods: {
     optionSelected (payload) {
-      debugger
       this.$store.commit('languageStore/setItemKey', payload.item)
       this.$nextTick(() => {
         this.$router.push({ name: 'Games' })
@@ -41,6 +41,7 @@ export default {
     ...mapState({
       language: state => state.languageStore.language,
       opts: state => {
+        if (!state.languageStore.language) return
         let keys = Object.keys(
           state.languageStore.languageOptions[state.languageStore.language.key]
         )

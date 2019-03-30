@@ -315,6 +315,7 @@ export default {
       let position = this.findAvailableRanomPosition()
       this.$set(this.board, position, this.characters[random])
       this.$nextTick(() => {
+        if (!this.$refs.letters_on_board[position]) return
         this.fit(this.$refs.letters_on_board[position].children[0])
       })
     },
@@ -364,11 +365,10 @@ export default {
 
 <style scoped>
 #linguisti-container {
-  height: 100vh;
   width: 100vw;
   overflow: hidden;
-  position: fixed;
-  top: 0;
+  /* position: fixed;
+  top: 0; */
   touch-action: none;
 }
 #snake-game-board-container {

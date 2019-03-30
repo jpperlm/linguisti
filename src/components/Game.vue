@@ -4,6 +4,7 @@
     :is="game.key"
     :characters="characters"
     @endGame="endGame"
+    style="touch-action: none;"
   ></component>
 </template>
 

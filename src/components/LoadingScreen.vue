@@ -80,6 +80,8 @@ export default {
 #loading {
   width: 100vw;
   height: 100vh;
+  position: fixed;
+  top: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;

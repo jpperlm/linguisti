@@ -196,6 +196,15 @@ export default {
         ['ピャ', 'pya'],
         ['ピュ', 'pyu'],
         ['ピョ', 'pyo']
+      ],
+      colors: [
+        ['オレンジ', 'orenji', 'Orange'],
+        ['ベージュ', 'be-ju', 'Beige'],
+        ['ライラック', 'rairakku', 'Lilac'],
+        ['ターコイズ', 'ta-koizu', 'Turquoise'],
+        ['ダークグリーン', 'da-ku guri-n', 'Dark Green'],
+        ['グレー', 'gure-', 'Gray'],
+        ['ピンク', 'pinku', 'Pink']
       ]
     },
     hiragana: {

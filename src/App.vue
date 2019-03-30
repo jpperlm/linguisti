@@ -1,13 +1,19 @@
 <template>
   <div id="app" class="primary-color white-text">
     <!-- <img src="./assets/logo.png"> -->
+    <navHeader />
     <router-view />
   </div>
 </template>
 
 <script>
+import navHeader from '@/components/NavHeader'
+
 export default {
-  name: 'App'
+  name: 'App',
+  components: {
+    navHeader
+  }
 }
 </script>
 
@@ -27,6 +33,7 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  flex-wrap: wrap;
   /* margin-top: 3%; */
 }
 #linguisti-container {
@@ -34,7 +41,7 @@ body {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  height: 100vh;
+  height: calc(100vh - 40px);
   width: 90vw;
 }
 @media only screen and (min-width: 600px) and (max-width: 1400px) {

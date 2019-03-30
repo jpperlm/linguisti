@@ -4,6 +4,7 @@
       <h2>Select A Game</h2>
     </div>
     <OptionList
+      v-if="games"
       :showMax="6"
       :list="games"
       :keyMap="keyMap"
@@ -38,13 +39,17 @@ export default {
   },
   computed: {
     ...mapState({
-      games: state =>
-        state.gameStore.games.filter(game => {
+      games: state => {
+        if (!state.languageStore.language || !state.languageStore.itemKey) {
+          return
+        }
+        return state.gameStore.games.filter(game => {
           return (
             game.allowFor.includes('all') ||
             game.allowFor.includes(state.languageStore.itemKey.key)
           )
-        }),
+        })
+      },
       language: state => state.languageStore.language,
       itemKey: state => state.languageStore.itemKey
     })

@@ -1,12 +1,10 @@
 <template>
   <div id="linguisti-container">
-    <div id="gameovermessage" class="secondary-color-text">{{ msg }}</div>
     <template v-if="!recap">
-      <div id="final-score" class="secondary-color-text">
-        Score: {{ score }}
-      </div>
+      <div id="gameovermessage">{{ msg }}</div>
+      <div id="final-score">Score: {{ score }}</div>
       <div id="finallettercontainer" class="primary-lighter rounded ">
-        <div style="width:100%;">Final Character</div>
+        <div style="width:100%;">Final Prompt</div>
         <div>{{ lastLetterNative }}</div>
         <div>{{ lastLetterEnglish }}</div>
       </div>
@@ -118,6 +116,7 @@ export default {
   font-size: 1.8em;
   min-width: 40%;
   margin-bottom: 5vh;
+  padding: 1%;
 }
 
 #gameovermessage {
@@ -130,7 +129,7 @@ export default {
   margin-bottom: 5%;
 }
 #recap-btn {
-  margin-bottom: 8%;
+  margin: 1vh;
   padding: 1%;
 }
 .fake-button {
@@ -140,7 +139,7 @@ export default {
   font-size: 1.1em;
   cursor: pointer;
   padding: 1%;
-  width: 20vw;
+  width: 60%;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -158,7 +157,7 @@ export default {
   min-height: 20vh;
 }
 .wronganswer {
-  color: #ff6556;
+  color: #e80012;
 }
 .correctanswer {
   color: #31e41c;
@@ -170,10 +169,10 @@ export default {
   font-size: 1.6em;
   padding: 5px;
   font-weight: bolder;
-  border-top: 1px solid #e4d7d7;
+  border-top: 1px solid #e80012;
 }
 #recap-header {
   font-size: 1.8em;
-  margin-bottom: 2%;
+  margin: 3vh;
 }
 </style>
