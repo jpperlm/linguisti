@@ -43,7 +43,7 @@ export default {
           index
         }
         this.$emit('optionSelected', payload)
-      }, 700)
+      }, 500)
     }
   },
   computed: {

@@ -57,6 +57,12 @@ body {
     margin: auto;
   }
 }
+.flex-center {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
 .rounded {
   border-radius: 15px;
 }
