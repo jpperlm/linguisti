@@ -13,7 +13,7 @@
           :backOfCard="
             charactersToShow[index].item[charactersToShow[index].native ? 0 : 1]
           "
-          :rotated="rotatedItems.includes(index)"
+          :rotated="rotatedItems.includes(index) || preview"
           @clicked="cardClicked(index)"
         />
         <div v-else-if="correct.includes(index)" class=""></div>
@@ -45,7 +45,8 @@ export default {
       rotatedItems: [],
       correct: [],
       board: [],
-      charactersToShow: []
+      charactersToShow: [],
+      preview: false
     }
   },
   computed: {
@@ -119,6 +120,10 @@ export default {
           })
         ]
         this.charactersToShow = this.shuffle(chars)
+        this.preview = true
+        setTimeout(() => {
+          this.preview = false
+        }, 3000)
       })
     },
     resetRotated () {
@@ -128,7 +133,7 @@ export default {
     },
     cardClicked (payload) {
       let len = this.rotatedItems.length
-      if (len === 2) return
+      if (len === 2 || this.preview) return
       if (this.rotatedItems.includes(payload)) {
         this.rotatedItems = this.rotatedItems.filter(x => {
           return x !== payload
