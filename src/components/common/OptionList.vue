@@ -112,7 +112,7 @@ export default {
 .image {
   height: 5.5vh;
   width: 8vh;
-  box-shadow: 0 0 10px 5px #e80012;
+  box-shadow: 0 0 5px 3px #00cde8;
   /* box-shadow: 10px 10px 6px #e80012; */
   border-radius: 3px;
 }

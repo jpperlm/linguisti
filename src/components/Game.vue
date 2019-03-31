@@ -12,12 +12,14 @@
 import { mapState } from 'vuex'
 import typing from '@/components/games/Type'
 import snake from '@/components/games/Snake'
+import memoryflip from '@/components/games/MemoryFlip'
 
 export default {
   name: 'Game',
   components: {
     typing,
-    snake
+    snake,
+    memoryflip
   },
   created () {
     if (!this.language || !this.game || !this.itemKey) {

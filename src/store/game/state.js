@@ -13,6 +13,14 @@ export default {
       sub: '(hisssss)',
       img: 'snake.png',
       allowFor: ['alphabet']
+    },
+    {
+      key: 'memoryflip',
+      label: 'Memory Tiles',
+      sub: '(flip pairs)',
+      img: '',
+      allowFor: ['all']
+      // exclude: ['alphabet']
     }
   ],
   game: undefined

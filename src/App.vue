@@ -70,13 +70,16 @@ body {
   cursor: pointer;
 }
 .primary-color {
-  background: #1f1c2a !important;
+  /* background: #1f1c2a !important; */
+  background: #151221 !important;
 }
 .primary-lighter {
-  background: #2c2541 !important;
+  /* background: #2c2541 !important; */
+  background: #2c2c2d !important;
 }
 .primary-lightest {
-  background: #392e5c !important;
+  /* background: #392e5c !important; */
+  background: #2c2c2d !important;
 }
 .secondary-color {
   background: #e80012 !important;

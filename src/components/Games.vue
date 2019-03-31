@@ -44,6 +44,12 @@ export default {
           return
         }
         return state.gameStore.games.filter(game => {
+          if (
+            game.exclude &&
+            game.exclude.includes(state.languageStore.itemKey.key)
+          ) {
+            return false
+          }
           return (
             game.allowFor.includes('all') ||
             game.allowFor.includes(state.languageStore.itemKey.key)

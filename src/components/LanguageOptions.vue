@@ -1,7 +1,7 @@
 <template>
   <div id="linguisti-container">
     <div class="title-header">
-      <h2>Select An Option</h2>
+      <h2>Select A Category</h2>
     </div>
     <OptionList
       v-if="opts"

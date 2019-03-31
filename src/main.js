@@ -9,9 +9,10 @@ import {
   faChevronLeft,
   faAngleDoubleLeft
 } from '@fortawesome/free-solid-svg-icons'
+import { faQuestionCircle } from '@fortawesome/free-regular-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
-library.add(faChevronLeft, faAngleDoubleLeft)
+library.add(faChevronLeft, faAngleDoubleLeft, faQuestionCircle)
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 Vue.config.productionTip = false

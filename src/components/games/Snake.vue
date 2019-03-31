@@ -454,6 +454,8 @@ export default {
   /* border:1px solid grey; */
 }
 .tile {
+  border: 1px solid #65595994;
+
   /* font-size: 2em; */
   /* line-height: 1em; */
 }

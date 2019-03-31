@@ -23,6 +23,14 @@ export default {
       native: '한글 ',
       img: 'korea.png',
       latin: false
+    },
+    {
+      key: 'arabic',
+      language: 'Arabic',
+      alphabet: 'Arabic',
+      native: '',
+      img: 'arabic.png',
+      latin: false
     }
   ],
   itemKey: undefined,
@@ -347,6 +355,44 @@ export default {
         ['あかねいろ', 'akane iro', 'Madder Red'],
         ['あかがねいろ', 'akagane iro', 'Copper'],
         ['せいどういろ', 'seidou iro', 'Bronze']
+      ]
+    },
+    arabic: {
+      alphabet: [
+        ['ي', 'y'],
+        ['و', 'w'],
+        ['ه', 'h'],
+        ['ن', 'N'],
+        ['م', 'M'],
+        ['ل', 'L'],
+        ['ك', 'k'],
+        ['ق', 'q'],
+        ['ف', 'F'],
+        ['غ', 'gh'],
+        ['ع', 'au'],
+        ['ظ', 'z'],
+        ['ط', 't'],
+        ['ض', 'dh'],
+        ['ص', 's'],
+        ['ش', 'sh'],
+        ['س', 'S'],
+        ['ز', 'z'],
+        ['ر', 'r'],
+        ['ذ', 'z'],
+        ['د', 'd'],
+        ['خ', 'kh'],
+        ['ح', 'h'],
+        ['ج', 'g'],
+        ['ث', 'th'],
+        ['ت', 't'],
+        ['ب', 'b'],
+        ['ا', 'a'],
+        ['چ', 'J'],
+        ['ڤ', 'v'],
+        ['پ', 'p'],
+        ['ء', 'aa'],
+        ['ؤ', 'aao'],
+        ['ئ', 'eaa']
       ]
     }
   },
