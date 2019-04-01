@@ -1,18 +1,28 @@
 <template>
   <div id="app" class="primary-color white-text">
     <!-- <img src="./assets/logo.png"> -->
-    <navHeader />
+    <hamburger :invert="showSidebar" />
+    <navHeader :showSidebar="showSidebar" />
     <router-view />
   </div>
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 import navHeader from '@/components/NavHeader'
+import hamburger from '@/components/Hamburger'
 
 export default {
   name: 'App',
   components: {
-    navHeader
+    navHeader,
+    hamburger
+  },
+  computed: {
+    ...mapState({
+      showSidebar: state => state.appstate.showSidebar
+    })
   }
 }
 </script>
@@ -41,7 +51,7 @@ body {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  height: calc(100vh - 40px);
+  height: 100vh;
   width: 90vw;
 }
 @media only screen and (min-width: 600px) and (max-width: 1400px) {
@@ -100,6 +110,9 @@ body {
 }
 .light-grey-text {
   color: #f9fbfb;
+}
+.primary-color-text {
+  color: #151221;
 }
 .secondary-color-text {
   color: #e80012;

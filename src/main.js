@@ -5,14 +5,11 @@ import App from './App'
 import router from './router'
 import store from './store'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import {
-  faChevronLeft,
-  faAngleDoubleLeft
-} from '@fortawesome/free-solid-svg-icons'
-import { faQuestionCircle } from '@fortawesome/free-regular-svg-icons'
+import { faBars } from '@fortawesome/free-solid-svg-icons'
+// import { faQuestionCircle } from '@fortawesome/free-regular-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
-library.add(faChevronLeft, faAngleDoubleLeft, faQuestionCircle)
+library.add(faBars)
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 Vue.config.productionTip = false

@@ -365,7 +365,7 @@ export default {
 
 <style scoped>
 #linguisti-container {
-  width: 100vw;
+  /* width: 100vw; */
   overflow: hidden;
   /* position: fixed;
   top: 0; */
