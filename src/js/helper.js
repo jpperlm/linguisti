@@ -21,7 +21,7 @@ export const helpers = {
         args.count = 0
       }
       const { element, pXA, prev, fontSize, count } = args
-      if (count > 40) return
+      if (count > 100) return
       let xA
       if (prev) {
         element.style.fSize = `${prev}px`

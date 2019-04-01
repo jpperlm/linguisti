@@ -1,6 +1,6 @@
 <template>
   <div id="linguisti-container">
-    <div id="score-container"></div>
+    <div id="score-container">{{ score }}</div>
     <div ref="memory_board" id="memory-board">
       <div
         v-for="(tile, index) in new Array(tiles)"
@@ -217,7 +217,7 @@ export default {
   /* padding-bottom: 10%; */
 }
 #score-container {
-  height: 10%;
+  height: 3%;
 }
 .tile {
   border: 1px solid #65595994;
