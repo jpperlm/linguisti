@@ -1,8 +1,8 @@
 <template>
   <div id="app" class="primary-color white-text">
     <!-- <img src="./assets/logo.png"> -->
-    <hamburger :invert="showSidebar" />
     <navHeader :showSidebar="showSidebar" />
+    <hamburger :invert="showSidebar" />
     <router-view />
   </div>
 </template>

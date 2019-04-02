@@ -88,6 +88,7 @@ export default {
   align-content: center;
   align-items: center;
   transition: all 1s ease-in-out;
+  z-index: 100;
 }
 #apptitle {
   font-size: 3.8em;

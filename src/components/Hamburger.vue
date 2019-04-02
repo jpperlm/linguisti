@@ -29,8 +29,9 @@ export default {
 #hamburger {
   position: fixed;
   top: 3%;
-  left: calc(5vw - 15px);
+  left: calc(10vw - 15px);
   z-index: 10;
   transition: all 1s ease-in-out;
+  cursor: pointer;
 }
 </style>
