@@ -6,12 +6,9 @@
       class="tertiary-color primary-color-text"
     >
       <div id="navitems" :class="{ hidden: !showSidebar }">
-        <div class="nav-item">Home</div>
-        <div class="nav-item">Languages</div>
-        <div class="nav-item">About</div>
-        <div class="nav-item">Settings</div>
-
+        <navItem :key="item.label" v-for="item in navItems" :data="item" />
         <div class="flex-spacer"></div>
+
         <div id="nav-link-perlman-labs" class="nav-item">
           Plabs
         </div>
@@ -26,9 +23,10 @@
 </template>
 
 <script>
+import navItem from '@/components/nav/NavbarItem'
 export default {
   name: 'Nav',
-  components: {},
+  components: { navItem },
   props: ['showSidebar'],
   mounted () {},
   methods: {
@@ -44,6 +42,22 @@ export default {
   computed: {},
   data () {
     return {
+      navItems: [
+        {
+          label: 'Home',
+          action: 'Loading'
+        },
+        {
+          label: 'Language',
+          action: 'Splash'
+        },
+        {
+          label: 'About'
+        },
+        {
+          label: 'Settings'
+        }
+      ]
       // routeMap: {
       //   Splash: 'Loading',
       //   LanguageOptions: 'Splash',
