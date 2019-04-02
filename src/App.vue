@@ -94,6 +94,9 @@ body {
 .secondary-color {
   background: #e80012 !important;
 }
+.tertiary-color {
+  background: #19ceb0;
+}
 
 .accent-color-2 {
   background: #24ffff !important;

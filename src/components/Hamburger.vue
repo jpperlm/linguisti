@@ -35,7 +35,12 @@ export default {
   cursor: pointer;
 }
 #hamburger.primary-color-text {
-  left: calc(10vw - 15px);
+  left: calc(50px - 15px);
+}
+@media only screen and (min-width: 500px) {
+  #hamburger.primary-color-text {
+    left: calc(10vw - 15px);
+  }
 }
 @media only screen and (min-width: 1000px) {
   #hamburger.primary-color-text {

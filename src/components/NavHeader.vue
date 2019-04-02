@@ -3,7 +3,7 @@
     <div
       id="navheader-inside"
       :class="{ hidden: !showSidebar }"
-      class="secondary-color primary-color-text"
+      class="tertiary-color primary-color-text"
     >
       <div id="navitems" :class="{ hidden: !showSidebar }">
         <div class="nav-item">Home</div>
@@ -19,7 +19,7 @@
     </div>
     <div
       id="nav-grey"
-      @click="$store.commit('appstate/toggleSidebar')"
+      @click="$store.dispatch('appstate/toggleSidebar', false)"
       :class="{ hidden: !showSidebar }"
     ></div>
   </div>
