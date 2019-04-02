@@ -3,10 +3,18 @@
     <div
       id="navheader-inside"
       :class="{ hidden: !showSidebar }"
-      class="secondary-color"
+      class="secondary-color primary-color-text"
     >
       <div id="navitems" :class="{ hidden: !showSidebar }">
-        <div class="nav-item">blah</div>
+        <div class="nav-item">Home</div>
+        <div class="nav-item">Languages</div>
+        <div class="nav-item">About</div>
+        <div class="nav-item">Settings</div>
+
+        <div class="flex-spacer"></div>
+        <div id="nav-link-perlman-labs" class="nav-item">
+          Plabs
+        </div>
       </div>
     </div>
     <div
@@ -61,27 +69,29 @@ export default {
   z-index: 1;
 }
 #navheader.hidden {
-  transition: width 1s ease-in-out;
+  transition: width 0s ease-in-out 1s;
   width: 0 !important;
 }
 
 #navheader-inside {
   width: 20vw;
   max-width: 200px;
+  min-width: 100px;
   height: 100vh;
   padding-top: calc(6vh + 30px);
   transition: all 1s ease-in-out;
 }
 #navheader-inside.hidden {
   width: 0 !important;
+  min-width: 0px !important;
 }
 .nav-item:first-child {
   border-top: 1px solid black;
 }
 #nav-grey {
   flex-grow: 1;
-  background: #a59494;
-  opacity: 0.5;
+  background: black;
+  opacity: 0.7;
   transition: all 1s ease-in-out;
 }
 #nav-grey.hidden {
@@ -93,5 +103,18 @@ export default {
 }
 #navitems {
   transition: all 1s ease-in-out;
+  height: calc(94vh - 30px);
+  display: flex;
+  flex-direction: column;
+}
+.nav-item:first-of-type {
+  /* padding-top: 20px; */
+}
+.nav-item {
+  padding: 5px;
+  border-bottom: 1px solid black;
+}
+.flex-spacer {
+  flex-grow: 1;
 }
 </style>

@@ -29,9 +29,17 @@ export default {
 #hamburger {
   position: fixed;
   top: 3%;
-  left: calc(10vw - 15px);
+  left: 3%;
   z-index: 10;
   transition: all 1s ease-in-out;
   cursor: pointer;
+}
+#hamburger.primary-color-text {
+  left: calc(10vw - 15px);
+}
+@media only screen and (min-width: 1000px) {
+  #hamburger.primary-color-text {
+    left: 85px;
+  }
 }
 </style>

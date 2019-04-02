@@ -66,7 +66,7 @@ export default {
 }
 .list-item {
   width: 100%;
-  height: 10vh;
+  height: 8vh;
   /* border-top: 1px solid #ff2457; */
   display: flex;
   flex-direction: row;
