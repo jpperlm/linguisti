@@ -73,6 +73,12 @@ body {
   justify-content: center;
   align-items: center;
 }
+.space-evenly {
+  justify-content: space-evenly !important;
+}
+.full-width {
+  width: 100%;
+}
 .rounded {
   border-radius: 15px;
 }

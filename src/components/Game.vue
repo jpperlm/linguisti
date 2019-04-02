@@ -35,7 +35,8 @@ export default {
           lastLetterEnglish: payload.lastLetterEnglish,
           lastLetterNative: payload.lastLetterNative,
           language: this.language,
-          history: payload.history
+          history: payload.history,
+          characters: this.characters
         }
       })
     }

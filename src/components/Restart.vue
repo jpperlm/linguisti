@@ -3,10 +3,12 @@
     <template v-if="!recap">
       <div id="gameovermessage">{{ msg }}</div>
       <div id="final-score">Score: {{ score }}</div>
-      <div id="finallettercontainer" class="primary-lighter rounded ">
-        <div style="width:100%;">Final Prompt</div>
-        <div>{{ lastLetterNative }}</div>
-        <div>{{ lastLetterEnglish }}</div>
+      <div id="finallettercontainer">
+        <div class="final-prompt-text full-width">Final Prompt</div>
+        <div class="flex-center space-evenly full-width">
+          <div class="text-bigger">{{ lastLetterNative }}</div>
+          <div class="text-bigger">{{ lastLetterEnglish }}</div>
+        </div>
       </div>
       <div
         id="recap-btn"
@@ -19,16 +21,28 @@
     <template v-else>
       <div id="recap-header">Reacp</div>
       <div id="recap-container">
-        <div
+        <!-- <div
           class="recap-item"
           v-for="(item, i) in history"
           :key="`recap${i}`"
           :class="{ wronganswer: !item.correct, correctanswer: item.correct }"
         >
-          <!-- <div v-if="item.correct" class="correctanswer">&#x2713;</div>
-        <div v-else class="wronganswer">&#x2717;</div> -->
           <div class="flex-center">{{ item['0'] }}</div>
           <div class="flex-center">{{ item['1'] }}</div>
+        </div> -->
+        <div
+          class="recap-item-larger"
+          v-for="(key, i) in Object.keys(summedHistory)"
+          :key="`recap${i}`"
+        >
+          <div class="flex-center">{{ characters[key][0] }}</div>
+          <div class="flex-center">{{ characters[key][1] }}</div>
+          <div class="flex-center correctanswer">
+            {{ summedHistory[key][1] !== 0 ? summedHistory[key][1] : '' }}
+          </div>
+          <div class="flex-center wronganswer">
+            {{ summedHistory[key][0] !== 0 ? summedHistory[key][0] : '' }}
+          </div>
         </div>
       </div>
       <div
@@ -80,6 +94,27 @@ export default {
     },
     history: {
       type: Array
+    },
+    characters: {
+      type: Array
+    }
+  },
+  computed: {
+    summedHistory () {
+      let r = {}
+      this.history.forEach(item => {
+        let characterIndex = this.characters.findIndex(c => {
+          return c[0] === item[0]
+        })
+        if (!r[characterIndex]) {
+          r[characterIndex] = {
+            0: 0,
+            1: 0
+          }
+        }
+        r[characterIndex][item.correct ? 1 : 0]++
+      })
+      return r
     }
   },
   created () {
@@ -171,6 +206,15 @@ export default {
   font-weight: bolder;
   border-top: 1px solid #e80012;
 }
+.recap-item-larger {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  font-size: 1.6em;
+  padding: 5px;
+  font-weight: bolder;
+  border-top: 1px solid #e80012;
+}
 .flex-center {
   display: flex;
   flex-direction: row;
@@ -180,5 +224,15 @@ export default {
 #recap-header {
   font-size: 1.8em;
   margin: 3vh;
+}
+.text-bigger {
+  font-size: 2em;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.final-prompt-text {
+  border-bottom: 1px solid #e80012;
 }
 </style>
