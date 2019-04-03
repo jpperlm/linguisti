@@ -28,5 +28,6 @@ export default {
 .nav-item {
   padding: 5px;
   border-bottom: 1px solid black;
+  cursor: pointer;
 }
 </style>

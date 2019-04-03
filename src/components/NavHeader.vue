@@ -50,13 +50,13 @@ export default {
         {
           label: 'Language',
           action: 'Splash'
-        },
-        {
-          label: 'About'
-        },
-        {
-          label: 'Settings'
         }
+        // {
+        //   label: 'About'
+        // },
+        // {
+        //   label: 'Settings'
+        // }
       ]
       // routeMap: {
       //   Splash: 'Loading',
@@ -80,7 +80,7 @@ export default {
   display: flex;
   flex-direction: row;
   overflow: hidden;
-  z-index: 1;
+  z-index: 998;
 }
 #navheader.hidden {
   transition: width 0s ease-in-out 1s;

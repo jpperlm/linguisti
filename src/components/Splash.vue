@@ -1,7 +1,7 @@
 <template>
   <div id="linguisti-container">
     <div class="title-header">
-      <h2>Select A Language</h2>
+      <h2>Languages</h2>
     </div>
     <OptionList
       :showMax="6"

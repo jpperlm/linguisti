@@ -1,7 +1,7 @@
 <template>
   <div id="linguisti-container">
     <div class="title-header">
-      <h2>Select A Game</h2>
+      <h2>Games</h2>
     </div>
     <OptionList
       v-if="games"

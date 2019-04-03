@@ -30,7 +30,7 @@ export default {
   position: fixed;
   top: 3%;
   left: 3%;
-  z-index: 10;
+  z-index: 999;
   transition: all 1s ease-in-out;
   cursor: pointer;
 }
