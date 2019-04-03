@@ -1,7 +1,7 @@
 <template>
   <div id="flipCard" class="flip-card" @click="$emit('clicked')">
     <div class="flip-card-inner" :class="{ rotated: rotated }">
-      <div class="flip-card-front flex-center">
+      <div class="flip-card-front flex-center" :style="backgroundImage">
         <font-awesome-icon
           class="question-icon"
           :icon="['far', 'question-circle']"
@@ -24,10 +24,20 @@ export default {
   props: ['backOfCard', 'rotated'],
   data () {
     return {
-      fontSize: 10
+      fontSize: 10,
+      texture: 'curls.png'
     }
   },
-  computed: {},
+  computed: {
+    backgroundImage () {
+      let x = `static/textures//${this.texture}`
+      let rObj = {
+        backgroundImage: `url(${x})`,
+        'background-size': 'cover'
+      }
+      return rObj
+    }
+  },
   watch: {},
   mounted () {
     this.fontSize = this.fit({
