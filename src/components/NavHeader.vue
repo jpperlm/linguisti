@@ -48,7 +48,7 @@ export default {
           action: 'Loading'
         },
         {
-          label: 'Language',
+          label: 'Languages',
           action: 'Splash'
         }
         // {
@@ -58,13 +58,6 @@ export default {
         //   label: 'Settings'
         // }
       ]
-      // routeMap: {
-      //   Splash: 'Loading',
-      //   LanguageOptions: 'Splash',
-      //   Games: 'LanguageOptions',
-      //   Game: 'Games',
-      //   Restart: 'Games'
-      // }
     }
   }
 }

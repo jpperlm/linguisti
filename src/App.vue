@@ -3,6 +3,7 @@
     <!-- <img src="./assets/logo.png"> -->
     <navHeader :showSidebar="showSidebar" />
     <hamburger :invert="showSidebar" />
+    <back :invert="showSidebar" />
     <router-view />
   </div>
 </template>
@@ -12,12 +13,14 @@ import { mapState } from 'vuex'
 
 import navHeader from '@/components/NavHeader'
 import hamburger from '@/components/Hamburger'
+import back from '@/components/Back'
 
 export default {
   name: 'App',
   components: {
     navHeader,
-    hamburger
+    hamburger,
+    back
   },
   computed: {
     ...mapState({
@@ -32,8 +35,8 @@ body {
   margin: 0;
 }
 #app {
-  /* font-family: 'Avenir', Helvetica, Arial, sans-serif; */
-  font-family: monsterrat;
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  /* font-family: monsterrat; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;

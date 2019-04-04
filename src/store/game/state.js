@@ -18,7 +18,7 @@ export default {
       key: 'memoryflip',
       label: 'Memory Tiles',
       sub: '(flip pairs)',
-      img: '',
+      img: 'memory.png',
       allowFor: ['all']
       // exclude: ['alphabet']
     }

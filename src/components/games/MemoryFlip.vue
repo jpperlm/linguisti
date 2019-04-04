@@ -1,6 +1,6 @@
 <template>
   <div id="linguisti-container">
-    <div id="score-container">{{ score }}</div>
+    <div id="score-container">Completed: {{ score }}</div>
     <div ref="memory_board" id="memory-board">
       <div
         v-for="(tile, index) in new Array(tiles)"
@@ -86,7 +86,6 @@ export default {
     resetBoard () {
       let board = this.$refs.memory_board
       let width = board.offsetWidth
-      let height = board.offsetHeight
       let tileSize = this.tileSide
       this.resetRotated()
       let half = this.tiles / 2
@@ -94,12 +93,10 @@ export default {
       this.charactersToShow = []
       this.correct = []
       this.$nextTick(() => {
-        board.style.gridTemplateColumns = `repeat(${Math.floor(
-          width / tileSize
-        )},${tileSize}px)`
-        board.style.gridTemplateRows = `repeat(${Math.floor(
-          height / tileSize
-        )},${tileSize}px)`
+        let cols = Math.floor(width / tileSize)
+        let rows = Math.ceil(this.tiles / cols)
+        board.style.gridTemplateColumns = `repeat(${cols},${tileSize}px)`
+        board.style.gridTemplateRows = `repeat(${rows},${tileSize}px)`
         while (chars.length !== half) {
           let random = Math.floor(Math.random() * this.characters.length)
           if (chars.includes(random)) continue
@@ -160,6 +157,7 @@ export default {
         if (this.characters.length >= this.tiles + 2) {
           this.tiles += 2
         }
+        this.score++
         this.resetBoard()
       }
     },
@@ -217,7 +215,12 @@ export default {
   /* padding-bottom: 10%; */
 }
 #score-container {
-  height: 3%;
+  height: 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 2em;
 }
 .tile {
   border: 1px solid #65595994;

@@ -28,7 +28,7 @@ export default {
       key: 'arabic',
       language: 'Arabic',
       alphabet: 'Arabic',
-      native: '',
+      native: 'عربى',
       img: 'arabic.png',
       latin: false
     }
