@@ -17,10 +17,12 @@ export const helpers = {
       return array
     },
     quick_fit (args) {
-      const { element, container, size } = args
+      let element = args.element
+      let size = args.size
+      let container = args.container
       let larger = Math.max(element.offsetWidth, element.offsetHeight)
-      let ratio = (size || container.offsetWidth) / larger
-      element.style.fontSize = ratio * 0.96 + 'em'
+      let ratio = (size || container.offsetWidth) / (larger * 1.1)
+      element.style.fontSize = ratio + 'em'
     },
     fit (args) {
       if (!args.count) {

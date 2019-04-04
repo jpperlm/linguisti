@@ -241,7 +241,6 @@ export default {
       } else if (this.border_counter > 0) {
         this.border_counter--
       }
-      let newle
       let removed
       if (this.fullsnake.length > 0) {
         removed = this.fullsnake.shift()
@@ -276,7 +275,6 @@ export default {
           this.$set(this.board, removed, 2)
           this.fullsnake.unshift(removed)
           this.$delete(this.letters, 0)
-          newle = true
         } else {
           this.letterCollected(false, nextSpot)
           this.$refs.snake_game_board.classList.remove('border-glow-green')
@@ -293,11 +291,6 @@ export default {
           this.$delete(this.letters, index)
         }
       }
-      let prevSize =
-        newle || !this.current_letter
-          ? undefined
-          : this.$refs.actualSnakeHead[0].style.fontSize.split('px')[0]
-
       this.$set(this.board, head, 1)
       this.$forceUpdate()
       this.$nextTick(() => {
