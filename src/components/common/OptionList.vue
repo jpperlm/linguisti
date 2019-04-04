@@ -1,7 +1,7 @@
 <template>
   <div id="list-container">
     <div
-      class="list-item primary-lighter"
+      class="list-item primary-lighter-opacity-6"
       v-for="(item, index) in slicedOptions"
       :key="`${item.key}_${index}`"
       v-on:click="optionClicked(item, index)"

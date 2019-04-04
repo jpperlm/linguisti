@@ -3,6 +3,14 @@
     <div id="promptcontainer" class="black-text-shadow">
       {{ character_native }}
     </div>
+    <div
+      ref="floatingscores"
+      v-for="(items, index) in scoreDisplay"
+      :key="`score${index}`"
+      class="score-floating"
+    >
+      {{ items }}
+    </div>
     <div id="inputcontainer">
       <input
         id="gameinput"
@@ -26,7 +34,13 @@
           {{ time }}
         </div>
       </div>
-      <div id="skip-btn" v-on:click="randomizeNewLetterIndex(true, false)">
+      <div
+        id="skip-btn"
+        v-on:click="
+          randomizeNewLetterIndex(true, false);
+          showIncrease('-1');
+        "
+      >
         skip
       </div>
     </div>
@@ -53,9 +67,28 @@ export default {
     this.startGame()
   },
   watch: {
+    score (n) {
+      this.showIncrease('+1')
+    },
     entry (n) {
       if (typeof this.letterIndex === 'undefined') return
-      if (
+      if (this.character_english.split('/').length > 1) {
+        this.character_english.split('/').forEach(ite => {
+          if (
+            n
+              .toLowerCase()
+              .replace(' ', '')
+              .replace('-', '') ===
+            ite
+              .toLowerCase()
+              .replace(' ', '')
+              .replace('-', '')
+          ) {
+            this.score++
+            return this.randomizeNewLetterIndex(true, true)
+          }
+        })
+      } else if (
         n
           .toLowerCase()
           .replace(' ', '')
@@ -111,6 +144,16 @@ export default {
       }
       this.prevLetterIndex = this.letterIndex
       this.letterIndex = Math.floor(Math.random() * this.characters.length)
+    },
+    showIncrease (i) {
+      this.scoreDisplay.push(i)
+      let ind = this.scoreDisplay.length - 1
+      this.$nextTick(() => {
+        this.$refs.floatingscores[ind].classList.add('moveUp')
+        setTimeout(() => {
+          this.$refs.floatingscores[ind].classList.add('hidden')
+        }, 1100)
+      })
     }
   },
   computed: {
@@ -139,8 +182,9 @@ export default {
       letterIndex: undefined,
       prevLetterIndex: undefined,
       time: undefined,
-      gameLength: 2000,
-      history: []
+      gameLength: 60,
+      history: [],
+      scoreDisplay: []
     }
   }
 }
@@ -225,6 +269,19 @@ export default {
   align-items: center;
 
   /* border-radius: 100%; */
+}
+.score-floating {
+  position: absolute;
+  /* height: 0px; */
+  top: calc(6vh + 2.8em - 10px);
+  transition: top 1.2s ease-out;
+  right: calc(50% + 40px);
+}
+.score-floating.moveUp {
+  top: calc(6vh + 2.8em - 40px);
+}
+.hidden {
+  display: none;
 }
 /* @media only screen and (min-width: 768px) {
   #linguisti-container {

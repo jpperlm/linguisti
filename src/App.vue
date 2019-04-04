@@ -150,6 +150,9 @@ body {
   background: #19ceb0;
 }
 
+.primary-lighter-opacity-6 {
+  background: rgba(44, 44, 45, 0.5) !important;
+}
 .primary-border {
   border: 1px solid #151221;
 }
