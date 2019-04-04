@@ -320,6 +320,7 @@ export default {
       // Find Position To Add Letter Onto Board - Must meet certain criteria
       let position = this.findAvailableRanomPosition()
       this.$set(this.board, position, this.characters[random])
+      this.$forceUpdate()
       this.$nextTick(() => {
         if (!this.$refs.letters_on_board[position]) return
         this.fit({
