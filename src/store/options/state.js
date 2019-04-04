@@ -1,5 +1,29 @@
 export default {
   languages: [
+    // {
+    //   key: 'arabic',
+    //   language: 'Arabic',
+    //   alphabet: 'Arabic',
+    //   native: 'عربى',
+    //   img: 'arabic.png',
+    //   latin: false
+    // },
+    {
+      key: 'hangul',
+      language: 'Korean',
+      alphabet: 'Hangul',
+      native: '한글 ',
+      img: 'korea.png',
+      latin: false
+    },
+    {
+      key: 'hebrew',
+      language: 'Hebrew',
+      alphabet: 'Hebrew',
+      native: 'עברי',
+      img: 'hebrew.png',
+      latin: false
+    },
     {
       key: 'hiragana',
       language: 'Japanese',
@@ -14,22 +38,6 @@ export default {
       alphabet: 'Katanaka',
       native: 'カタカナ',
       img: 'japan.svg',
-      latin: false
-    },
-    {
-      key: 'hangul',
-      language: 'Korean',
-      alphabet: 'Hangul',
-      native: '한글 ',
-      img: 'korea.png',
-      latin: false
-    },
-    {
-      key: 'arabic',
-      language: 'Arabic',
-      alphabet: 'Arabic',
-      native: 'عربى',
-      img: 'arabic.png',
       latin: false
     }
   ],
@@ -92,6 +100,25 @@ export default {
         ['ㄸ', 'tt'],
         ['ㅃ', 'pp'],
         ['ㅆ', 'ss']
+      ],
+      colors: [
+        ['색깔', 'Saekkkal', 'color'],
+        ['주황색', 'juhwangsaek', 'orange'],
+        ['노란색', 'noransaek', 'yellow'],
+        ['파란색', 'paransaek', 'blue'],
+        ['빨간색', 'bbalgansaek', 'red'],
+        ['초록색', 'choroksaek', 'green'],
+        ['검정색', 'geomjeongsaek', 'black'],
+        ['갈색', 'galsaek', 'brown'],
+        ['분홍색', 'bunhongsaek', 'pink'],
+        ['보라색', 'borasaek', 'purple'],
+        ['흰색', 'heuinsaek', 'white'],
+        ['회색', 'hoesaek', 'gray'],
+        ['금색', 'geumsaek', 'gold'],
+        ['은색', 'eunsaek', 'silver'],
+        ['청동색', 'cheongdongsaek', 'bronze'],
+        ['여러 가지 색', 'yeoreo gaji saek', 'multi-colored'],
+        ['무지개색', 'mujigaesaek', 'rainbow']
       ]
     },
     katakana: {
@@ -213,6 +240,23 @@ export default {
         ['ダークグリーン', 'da-ku guri-n', 'Dark Green'],
         ['グレー', 'gure-', 'Gray'],
         ['ピンク', 'pinku', 'Pink']
+      ]
+    },
+    hebrew: {
+      colors: [
+        ['לָבָן', 'La-van', 'White'],
+        ['וָרֹוד', 'Va-rod', 'Pink'],
+        ['אָדֹום', 'A-dom', 'Red'],
+        ['חוּם', 'Hom', 'Brown'],
+        ['כָּתֹום', 'Ka-tom', 'Orange'],
+        ['צָהֹוב', 'Tza-hov', 'Yellow'],
+        ['יָרֹוק בָּהִיר', 'Ya-rok ba-hir', 'Light-Green'],
+        ['יָרֹוק', 'Ya-rok', 'Green'],
+        ['תְּכֵלֶת', 'Te-che-let', 'Light-Blue'],
+        ['כָּחֹול', 'Ka-chol', 'Blue'],
+        ['סָגֹול', 'Sa-gol', 'Purple'],
+        ['אָפֹור', 'A-for', 'Grey'],
+        ['שָׁחֹור', 'Sha-chor', 'Black']
       ]
     },
     hiragana: {
