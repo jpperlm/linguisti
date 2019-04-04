@@ -13,9 +13,9 @@
       </div>
     </template>
     <template v-else>
-      <div id="finallettercontainer" class="black-text-shadow">
+      <div id="finallettercontainer">
         <div class="final-prompt-text full-width">Final Prompt</div>
-        <div class="flex-center space-evenly full-width">
+        <div class="flex-center space-evenly full-width black-text-shadow">
           <div class="text-bigger">{{ lastLetterNative }}</div>
           <div class="text-bigger">{{ lastLetterEnglish }}</div>
         </div>
