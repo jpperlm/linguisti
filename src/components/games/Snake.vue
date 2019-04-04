@@ -298,12 +298,13 @@ export default {
           : this.$refs.actualSnakeHead[0].style.fontSize.split('px')[0]
 
       this.$set(this.board, head, 1)
+      this.$forceUpdate()
       this.$nextTick(() => {
         if (!this.current_letter) return
-        this.fit({
-          element: this.$refs.actualSnakeHead[0],
-          fontSize: prevSize - 10 > 8 ? prevSize - 10 : 8
-        })
+        // this.fit({
+        //   element: this.$refs.actualSnakeHead[0],
+        //   fontSize: prevSize - 10 > 8 ? prevSize - 10 : 8
+        // })
       })
     },
     letterCollected (bool, letter) {
@@ -323,10 +324,10 @@ export default {
       this.$forceUpdate()
       this.$nextTick(() => {
         if (!this.$refs.letters_on_board[position]) return
-        this.fit({
-          element: this.$refs.letters_on_board[position].children[0],
-          fontSize: 8
-        })
+        // this.fit({
+        //   element: this.$refs.letters_on_board[position].children[0],
+        //   fontSize: 8
+        // })
       })
     },
     findAvailableRanomPosition () {
