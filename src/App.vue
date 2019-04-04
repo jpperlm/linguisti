@@ -2,8 +2,8 @@
   <div id="app" class="white-text gradient">
     <!-- <img src="./assets/logo.png"> -->
     <navHeader :showSidebar="showSidebar" />
-    <hamburger :invert="showSidebar" />
-    <back :invert="showSidebar" />
+    <hamburger v-if="$route.name !== 'Loading'" :invert="showSidebar" />
+    <back v-if="$route.name !== 'Loading'" :invert="showSidebar" />
     <router-view />
   </div>
 </template>

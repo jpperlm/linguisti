@@ -88,7 +88,7 @@ export default {
   align-content: center;
   align-items: center;
   transition: all 1s ease-in-out;
-  z-index: 1000;
+  z-index: 10000;
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
 }
 #apptitle {
