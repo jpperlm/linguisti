@@ -32,7 +32,7 @@
             {{ current_letter_eng }}
           </div>
           <div v-if="Array.isArray(board[i])" class="lettersquare">
-            {{ board[i][0] }}
+            <span>{{ board[i][0] }}</span>
           </div>
         </div>
       </div>
@@ -66,7 +66,8 @@ export default {
       score: 0,
       xDown: null,
       yDown: null,
-      pause: false
+      pause: false,
+      tilesize: undefined
     }
   },
   computed: {
@@ -96,7 +97,7 @@ export default {
     let min = Math.min(width, height)
     let tiles = this.tiles
     let tilesize = min / tiles
-
+    this.tilesize = tilesize
     let board = this.$refs.snake_game_board
     board.style.width = `${min}px`
     board.style.height = `${min}px`
@@ -301,10 +302,10 @@ export default {
       this.$forceUpdate()
       this.$nextTick(() => {
         if (!this.current_letter) return
-        // this.fit({
-        //   element: this.$refs.actualSnakeHead[0],
-        //   fontSize: prevSize - 10 > 8 ? prevSize - 10 : 8
-        // })
+        this.quick_fit({
+          element: this.$refs.actualSnakeHead[0],
+          size: this.tilesize
+        })
       })
     },
     letterCollected (bool, letter) {
@@ -324,10 +325,10 @@ export default {
       this.$forceUpdate()
       this.$nextTick(() => {
         if (!this.$refs.letters_on_board[position]) return
-        // this.fit({
-        //   element: this.$refs.letters_on_board[position].children[0],
-        //   fontSize: 8
-        // })
+        this.quick_fit({
+          element: this.$refs.letters_on_board[position].querySelector('span'),
+          container: this.$refs.letters_on_board[position]
+        })
       })
     },
     findAvailableRanomPosition () {

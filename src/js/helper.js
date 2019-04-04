@@ -16,6 +16,12 @@ export const helpers = {
       }
       return array
     },
+    quick_fit (args) {
+      const { element, container, size } = args
+      let larger = Math.max(element.offsetWidth, element.offsetHeight)
+      let ratio = (size || container.offsetWidth) / larger
+      element.style.fontSize = ratio * 0.96 + 'em'
+    },
     fit (args) {
       if (!args.count) {
         args.count = 0
@@ -28,9 +34,9 @@ export const helpers = {
         // return
       }
       if (element.scrollWidth > element.offsetWidth) {
-        xA = -1
+        xA = -3
       } else {
-        xA = 1
+        xA = 3
       }
       if (element.scrollHeight > element.offsetHeight) {
         return fontSize
@@ -41,7 +47,7 @@ export const helpers = {
         fSize = parseFloat(fSize.split('px')[0])
       } else {
         fSize = fontSize || 8
-        xA = 1
+        xA = 3
       }
       if (!pXA || pXA === xA) {
         fSize += xA
