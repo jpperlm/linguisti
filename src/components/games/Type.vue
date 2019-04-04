@@ -1,6 +1,8 @@
 <template>
   <div id="linguisti-container" v-on:click="reFocus">
-    <div id="promptcontainer">{{ character_native }}</div>
+    <div id="promptcontainer" class="black-text-shadow">
+      {{ character_native }}
+    </div>
     <div id="inputcontainer">
       <input
         id="gameinput"
@@ -11,9 +13,10 @@
         autofill="none"
         placeholder="Enter the translation..."
         pattern="[A-Za-z]*"
+        class="primary-text-font"
       />
     </div>
-    <div id="actions-container" class="accent-color-2-text">
+    <div id="actions-container" class="white-text black-text-shadow">
       <div id="clear-btn" v-on:click="entry = ''">
         clear
       </div>
@@ -136,7 +139,7 @@ export default {
       letterIndex: undefined,
       prevLetterIndex: undefined,
       time: undefined,
-      gameLength: 8,
+      gameLength: 2000,
       history: []
     }
   }
@@ -151,7 +154,6 @@ export default {
   font-size: 1.4em;
   text-align: center;
   font-weight: bolder;
-  color: #2419cc;
   margin-bottom: 5px;
   width: 100%;
   height: 100%;
@@ -204,6 +206,7 @@ export default {
   width: 250px;
   min-height: 25px;
   margin-top: 3%;
+  font-size: 1.4em;
 }
 
 #clear-btn,
@@ -216,11 +219,11 @@ export default {
   font-size: 1.2em;
   width: 1.5em;
   height: 1.5em;
-  border: 1px solid #e80012;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+
   /* border-radius: 100%; */
 }
 /* @media only screen and (min-width: 768px) {

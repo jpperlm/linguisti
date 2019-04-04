@@ -48,6 +48,7 @@ body {
   flex-direction: row;
   justify-content: center;
   flex-wrap: wrap;
+
   /* margin-top: 3%; */
 }
 .gradient {
@@ -130,6 +131,14 @@ body {
 }
 .tertiary-color {
   background: #19ceb0;
+}
+
+.primary-border {
+  border: 1px solid #151221;
+}
+
+.black-text-shadow {
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 .accent-color-2 {

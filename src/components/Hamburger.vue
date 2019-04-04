@@ -5,6 +5,7 @@
       'white-text': !invert,
       'primary-color-text': invert
     }"
+    class="black-text-shadow"
     @click="$store.commit('appstate/toggleSidebar')"
   >
     <font-awesome-icon size="2x" icon="bars" />

@@ -3,13 +3,7 @@
     <template v-if="!recap">
       <div id="gameovermessage">{{ msg }}</div>
       <div id="final-score">Score: {{ score }}</div>
-      <div id="finallettercontainer">
-        <div class="final-prompt-text full-width">Final Prompt</div>
-        <div class="flex-center space-evenly full-width">
-          <div class="text-bigger">{{ lastLetterNative }}</div>
-          <div class="text-bigger">{{ lastLetterEnglish }}</div>
-        </div>
-      </div>
+
       <div
         id="recap-btn"
         class="fake-button rounded primary-lighter clickable accent-color-2-text"
@@ -19,8 +13,14 @@
       </div>
     </template>
     <template v-else>
-      <div id="recap-header">Reacp</div>
-      <div id="recap-container">
+      <div id="finallettercontainer" class="black-text-shadow">
+        <div class="final-prompt-text full-width">Final Prompt</div>
+        <div class="flex-center space-evenly full-width">
+          <div class="text-bigger">{{ lastLetterNative }}</div>
+          <div class="text-bigger">{{ lastLetterEnglish }}</div>
+        </div>
+      </div>
+      <div id="recap-container" class="black-text-shadow">
         <!-- <div
           class="recap-item"
           v-for="(item, i) in history"
@@ -35,8 +35,8 @@
           v-for="(key, i) in Object.keys(summedHistory)"
           :key="`recap${i}`"
         >
-          <div class="flex-center">{{ characters[key][0] }}</div>
-          <div class="flex-center">{{ characters[key][1] }}</div>
+          <div class="flex-center recap-letter">{{ characters[key][0] }}</div>
+          <div class="flex-center recap-letter">{{ characters[key][1] }}</div>
           <div class="flex-center correctanswer">
             {{ summedHistory[key][1] !== 0 ? summedHistory[key][1] : '' }}
           </div>
@@ -148,9 +148,9 @@ export default {
   flex-wrap: wrap;
   justify-content: space-evenly;
   align-items: center;
-  font-size: 1.8em;
+  font-size: 1.3em;
   min-width: 40%;
-  margin-bottom: 5vh;
+  margin: 2vh;
   padding: 1%;
 }
 
@@ -186,7 +186,7 @@ export default {
   overflow-y: scroll;
   overflow-x: hidden;
   max-height: 40vh;
-  margin-bottom: 5%;
+  margin: 2vh;
   width: 70%;
   z-index: 2;
   min-height: 20vh;
@@ -197,6 +197,8 @@ export default {
 .correctanswer {
   color: #31e41c;
 }
+.recap-letter {
+}
 .recap-item {
   width: 100%;
   display: grid;
@@ -204,7 +206,7 @@ export default {
   font-size: 1.6em;
   padding: 5px;
   font-weight: bolder;
-  border-top: 1px solid #e80012;
+  border-top: 1px solid #151221;
 }
 .recap-item-larger {
   width: 100%;
@@ -213,7 +215,7 @@ export default {
   font-size: 1.6em;
   padding: 5px;
   font-weight: bolder;
-  border-top: 1px solid #e80012;
+  border-top: 1px solid #151221;
 }
 .flex-center {
   display: flex;
@@ -233,6 +235,6 @@ export default {
   align-items: center;
 }
 .final-prompt-text {
-  border-bottom: 1px solid #e80012;
+  /* border-bottom: 1px solid #151221; */
 }
 </style>

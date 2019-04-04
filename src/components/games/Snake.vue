@@ -113,8 +113,8 @@ export default {
       e.stopPropagation()
       if (!this.xDown && !this.yDown) {
         if (
-          !(e.clientX || e.targetTouches[0].clientX) ||
-          !(e.clientY || e.targetTouches[0].clientY)
+          !(e.clientX || (e.targetTouches && e.targetTouches[0].clientX)) ||
+          !(e.clientY || (e.targetTouches && e.targetTouches[0].clientY))
         ) {
           return
         }
