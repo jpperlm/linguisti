@@ -41,9 +41,12 @@
 </template>
 
 <script>
+import { helpers } from '@/js/helper'
+
 export default {
   name: 'Snake',
   components: {},
+  mixins: [helpers],
   props: ['characters'],
   data () {
     return {
@@ -297,7 +300,10 @@ export default {
       this.$set(this.board, head, 1)
       this.$nextTick(() => {
         if (!this.current_letter) return
-        this.fit(this.$refs.actualSnakeHead[0], undefined, prevSize)
+        this.fit({
+          element: this.$refs.actualSnakeHead[0],
+          fontSize: prevSize - 10 > 8 ? prevSize - 10 : 8
+        })
       })
     },
     letterCollected (bool, letter) {
@@ -316,34 +322,11 @@ export default {
       this.$set(this.board, position, this.characters[random])
       this.$nextTick(() => {
         if (!this.$refs.letters_on_board[position]) return
-        this.fit(this.$refs.letters_on_board[position].children[0])
+        this.fit({
+          element: this.$refs.letters_on_board[position].children[0],
+          fontSize: 8
+        })
       })
-    },
-    fit (element, pXA, prev) {
-      let xA
-      if (prev) {
-        element.style.fontSize = `${prev}px`
-        // return
-      }
-      if (element.scrollWidth > element.offsetWidth) {
-        xA = -1
-      } else {
-        xA = 1
-      }
-      if (element.scrollHeight > element.offsetHeight) {
-        return
-      }
-      let fontSize = element.style.fontSize
-      if (fontSize) {
-        fontSize = parseFloat(fontSize.split('px')[0])
-      } else {
-        fontSize = 8
-      }
-      if (!pXA || pXA === xA) {
-        fontSize += xA
-        element.style.fontSize = `${fontSize}px`
-        return this.fit(element, xA)
-      }
     },
     findAvailableRanomPosition () {
       let random = Math.floor(Math.random() * this.tiles * this.tiles)
