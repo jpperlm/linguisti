@@ -2,7 +2,7 @@
   <div
     id="hamburger"
     :class="{
-      'secondary-color-text': !invert,
+      'white-text': !invert,
       'primary-color-text': invert
     }"
     @click="$store.commit('appstate/toggleSidebar')"

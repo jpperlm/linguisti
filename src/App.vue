@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="primary-color white-text">
+  <div id="app" class="white-text gradient">
     <!-- <img src="./assets/logo.png"> -->
     <navHeader :showSidebar="showSidebar" />
     <hamburger :invert="showSidebar" />
@@ -49,6 +49,30 @@ body {
   justify-content: center;
   flex-wrap: wrap;
   /* margin-top: 3%; */
+}
+.gradient {
+  z-index: -1;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  color: #fff;
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: Gradient 15s ease infinite;
+}
+
+@keyframes Gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 #linguisti-container {
   display: flex;

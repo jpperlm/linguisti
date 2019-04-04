@@ -1,5 +1,5 @@
 <template>
-  <div ref="loading" id="loading" class="secondary-color">
+  <div ref="loading" id="loading">
     <div ref="apptitle" id="apptitle" class="slowtransition">
       Linguisti
     </div>
@@ -60,9 +60,9 @@ export default {
       let bg = this.$refs.loading
       setTimeout(() => {
         bg.classList.remove('secondary-color')
-        bg.classList.add('primary-color')
-        this.$refs.apptitle.classList.add('secondary-color-text')
-        domEelement.classList.add('secondary-color-text')
+        // bg.classList.add('primary-color')
+        this.$refs.apptitle.classList.add('primary-color-text')
+        domEelement.classList.add('primary-color-text')
         domEelement.classList.remove('hidden')
         setTimeout(() => {
           this.$router.push({ name: 'Splash' })
