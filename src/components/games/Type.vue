@@ -70,8 +70,10 @@ export default {
     score (n) {
       this.showIncrease('+1')
     },
-    entry (n) {
+    entry (n, o) {
+      if (n.toLowerCase() === o.toLowerCase()) return
       if (typeof this.letterIndex === 'undefined') return
+      this.entry = n.toLowerCase()
       if (this.character_english.split('/').length > 1) {
         this.character_english.split('/').forEach(ite => {
           if (
@@ -149,10 +151,12 @@ export default {
       this.scoreDisplay.push(i)
       let ind = this.scoreDisplay.length - 1
       this.$nextTick(() => {
-        this.$refs.floatingscores[ind].classList.add('moveUp')
         setTimeout(() => {
-          this.$refs.floatingscores[ind].classList.add('hidden')
-        }, 1100)
+          this.$refs.floatingscores[ind].classList.add('moveUp')
+          setTimeout(() => {
+            this.$refs.floatingscores[ind].classList.add('hidden')
+          }, 1100)
+        }, 100)
       })
     }
   },
