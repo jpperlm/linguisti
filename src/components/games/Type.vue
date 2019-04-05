@@ -39,6 +39,7 @@
         v-on:click="
           randomizeNewLetterIndex(true, false);
           showIncrease('-1');
+          score--;
         "
       >
         skip
