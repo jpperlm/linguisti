@@ -68,9 +68,6 @@ export default {
     this.startGame()
   },
   watch: {
-    score (n) {
-      this.showIncrease('+1')
-    },
     entry (n, o) {
       if (n.toLowerCase() === o.toLowerCase()) return
       if (typeof this.letterIndex === 'undefined') return
@@ -88,6 +85,7 @@ export default {
               .replace('-', '')
           ) {
             this.score++
+            this.showIncrease('+1')
             return this.randomizeNewLetterIndex(true, true)
           }
         })
@@ -102,6 +100,7 @@ export default {
           .replace('-', '')
       ) {
         this.score++
+        this.showIncrease('+1')
         this.randomizeNewLetterIndex(true, true)
       }
     }
@@ -147,6 +146,9 @@ export default {
       }
       this.prevLetterIndex = this.letterIndex
       this.letterIndex = Math.floor(Math.random() * this.characters.length)
+      this.$nextTick(() => {
+        this.reFocus()
+      })
     },
     showIncrease (i) {
       this.scoreDisplay.push(i)
