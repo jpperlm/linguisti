@@ -252,6 +252,7 @@ export default {
 }
 .lock-text {
   transition: all 1s ease-in-out;
+  padding: 5px;
 }
 .lock-bars {
   position: relative;
