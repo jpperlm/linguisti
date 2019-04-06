@@ -227,8 +227,8 @@ export default {
   flex-direction: row;
   align-items: center;
   overflow: hidden;
-  border-right: 4px solid #3c3a3a;
-  border-left: 4px solid #3c3a3a;
+  border-right: 7px solid #3c3a3a;
+  border-left: 7px solid #3c3a3a;
   color: #31e41c;
   height: 2em;
 }
@@ -271,7 +271,7 @@ export default {
 .surroundingLock {
   flex-grow: 1;
   width: 60%;
-  border-right: 4px solid black;
-  border-left: 4px solid black;
+  border-right: 7px solid black;
+  border-left: 7px solid black;
 }
 </style>
