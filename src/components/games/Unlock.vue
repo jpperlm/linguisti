@@ -10,7 +10,10 @@
         <div
           :key="lock + index"
           class="lock black-text-shadow"
-          :class="{ locked: lockState[index] }"
+          :class="{
+            locked: lockState[index],
+            currentPick: pickIndex === index
+          }"
           ref="lockRows"
         >
           <div class="lock-bars"></div>
@@ -78,7 +81,7 @@ export default {
       if (this.numKeys < 5) {
         this.numKeys++
       }
-      if (this.numDistractions < 8) {
+      if (this.numDistractions < 5) {
         this.numDistractions++
       }
       this.pause = true
@@ -227,9 +230,15 @@ export default {
   border-right: 4px solid #3c3a3a;
   border-left: 4px solid #3c3a3a;
   color: #31e41c;
+  height: 2em;
 }
 .lock.locked {
   color: #e80012 !important;
+}
+.lock.currentPick .lock-text {
+  box-shadow: 0 0 3px 3px gold;
+  z-index: 10;
+  border-radius: 100px;
 }
 .word-bank-item {
   padding: 10px;
