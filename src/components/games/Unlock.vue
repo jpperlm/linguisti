@@ -1,22 +1,24 @@
 <template>
   <div id="linguisti-container">
-    <div class="flex-center">{{ score }}</div>
-    <div class="flex-center">{{ timer }}</div>
-
+    <div class="flex-center" id="score-timer">
+      <div>{{ score }}</div>
+      <div>{{ timer }}</div>
+    </div>
     <div class="flex-center" id="locks-container">
       <div class="surroundingLock"></div>
-      <div
-        v-for="(lock, index) in locksExpanded"
-        :key="lock + index"
-        class="lock black-text-shadow"
-        :class="{ locked: lockState[index] }"
-        ref="lockRows"
-      >
-        <div class="lock-bars"></div>
-        <div class="lock-text">{{ lock[0] }}</div>
-        <div class="lock-bars"></div>
-      </div>
-      <div class="surroundingLock"></div>
+      <template v-for="(lock, index) in locksExpanded">
+        <div
+          :key="lock + index"
+          class="lock black-text-shadow"
+          :class="{ locked: lockState[index] }"
+          ref="lockRows"
+        >
+          <div class="lock-bars"></div>
+          <div class="lock-text">{{ lock[0] }}</div>
+          <div class="lock-bars"></div>
+        </div>
+        <div :key="'fill' + lock + index" class="surroundingLock"></div>
+      </template>
     </div>
     <div class="flex-center black-text-shadow" id="word-bank-container">
       <div id="word-bank">
@@ -184,14 +186,16 @@ export default {
 #linguisti-container {
   display: grid;
   width: 100%;
-  grid-template-rows: 5% 5% 70% 20%;
+  grid-template-rows: 5% 70% 25%;
   grid-template-columns: 100%;
   font-size: 2em;
+  background: rgba(0, 0, 0, 0.32);
 }
 #locks-container {
   height: 100%;
   flex-wrap: wrap;
   flex-direction: column;
+  justify-content: space-evenly;
 }
 #word-bank-container {
   display: flex;
@@ -207,7 +211,12 @@ export default {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-between;
+}
+#score-timer {
+  justify-content: space-evenly;
+  width: 70%;
+  margin: auto;
 }
 .lock {
   width: 60%;
@@ -215,8 +224,8 @@ export default {
   flex-direction: row;
   align-items: center;
   overflow: hidden;
-  border-right: 4px solid black;
-  border-left: 4px solid black;
+  border-right: 4px solid #3c3a3a;
+  border-left: 4px solid #3c3a3a;
   color: #31e41c;
 }
 .lock.locked {
@@ -225,6 +234,12 @@ export default {
 .word-bank-item {
   padding: 10px;
   user-select: none;
+  font-size: 0.8em;
+  text-decoration: underline;
+  /* box-shadow: 0 0 1px px grey; */
+
+  /* border-right: 1px solid grey; */
+  /* border-left: 1px solid grey; */
 }
 .lock-text {
   transition: all 1s ease-in-out;
@@ -233,8 +248,8 @@ export default {
   position: relative;
   left: 0px;
   flex-grow: 1;
-  height: 6%;
-  background: black;
+  height: 15%;
+  background: #3c3a3a;
   transition: all 1s ease-in-out;
 }
 .lock-bars.moveLeft {
