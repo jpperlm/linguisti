@@ -27,9 +27,8 @@
           <div
             v-if="fullsnake[fullsnake.length - 1] === i"
             class="actualSnakeHead"
-            ref="actualSnakeHead"
           >
-            {{ current_letter_eng }}
+            <span ref="actualSnakeHead">{{ current_letter_eng }}</span>
           </div>
           <div v-if="Array.isArray(board[i])" class="lettersquare">
             <span>{{ board[i][0] }}</span>
@@ -60,6 +59,7 @@ export default {
       previous_direction: 's',
       letters: [],
       counter: 0,
+      distractionCounter: 0,
       border_counter: 0,
       border_frames: 3,
       needs_fit: [],
@@ -67,7 +67,8 @@ export default {
       xDown: null,
       yDown: null,
       pause: false,
-      tilesize: undefined
+      tilesize: undefined,
+      snakeHeadSize: undefined
     }
   },
   computed: {
@@ -83,7 +84,11 @@ export default {
       return this.letters.length ? this.letters[0][0] : undefined
     }
   },
-  watch: {},
+  watch: {
+    current_letter () {
+      this.snakeHeadSize = undefined
+    }
+  },
   beforeDestroy () {
     window.removeEventListener('keyup', this.changeDirection)
     window.removeEventListener('touchmove', this.mouse)
@@ -174,9 +179,14 @@ export default {
     startSnake (b) {
       if (this.pause) return
       this.counter++
+      this.distractionCounter++
       if (this.counter > 10) {
         this.addLetter()
         this.counter = 0
+      }
+      if (this.distractionCounter > 35) {
+        this.addLetter(true)
+        this.distractionCounter = 0
       }
       setTimeout(() => {
         if (this.pause) return
@@ -295,9 +305,10 @@ export default {
       this.$forceUpdate()
       this.$nextTick(() => {
         if (!this.current_letter) return
-        this.quick_fit({
+        this.snakeHeadSize = this.quick_fit({
           element: this.$refs.actualSnakeHead[0],
-          size: this.tilesize
+          size: this.tilesize,
+          useMe: this.snakeHeadSize
         })
       })
     },
@@ -308,10 +319,12 @@ export default {
       })
       this.score += bool ? 1 : -1
     },
-    addLetter () {
+    addLetter (distraction = false) {
       // Add Letter To Letters Array
       let random = Math.floor(Math.random() * this.characters.length)
-      this.$set(this.letters, this.letters.length, this.characters[random])
+      if (!distraction) {
+        this.$set(this.letters, this.letters.length, this.characters[random])
+      }
       // Find Position To Add Letter Onto Board - Must meet certain criteria
       let position = this.findAvailableRanomPosition()
       this.$set(this.board, position, this.characters[random])

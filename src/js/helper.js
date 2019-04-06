@@ -20,9 +20,15 @@ export const helpers = {
       let element = args.element
       let size = args.size
       let container = args.container
+      let useMe = args.useMe
+      if (useMe) {
+        element.style.fontSize = useMe + 'em'
+        return useMe
+      }
       let larger = Math.max(element.offsetWidth, element.offsetHeight)
       let ratio = (size || container.offsetWidth) / (larger * 1.1)
       element.style.fontSize = ratio + 'em'
+      return ratio
     },
     fit (args) {
       if (!args.count) {
