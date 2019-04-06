@@ -21,6 +21,14 @@ export default {
       img: 'memory.png',
       allowFor: ['all']
       // exclude: ['alphabet']
+    },
+    {
+      key: 'unlock',
+      label: 'Lock Pick',
+      sub: '(open the gate)',
+      img: 'unlock.png',
+      allowFor: ['all']
+      // exclude: ['alphabet']
     }
   ],
   game: undefined

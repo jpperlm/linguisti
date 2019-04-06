@@ -63,6 +63,9 @@ export const helpers = {
         return this.fit({ element, pxA: xA, fontSize: fSize, count: count + 1 })
       }
       return fSize
+    },
+    randomLetterIndex () {
+      return Math.floor(Math.random() * this.characters.length)
     }
   }
 }
