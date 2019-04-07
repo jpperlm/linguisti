@@ -9,6 +9,10 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 rawAlphabets/
+app-release-zip.apk
+linguisti.keystore
+linguisti.keystore.old
+platforms/
 # Editor directories and files
 .idea
 .vscode

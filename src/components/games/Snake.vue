@@ -408,14 +408,14 @@ export default {
   border: 3px solid #ff2457;
   outline: none;
   border-color: #ff2457;
-  box-shadow: 0 0 50px 15px #ff2457;
+  box-shadow: inset 0 0 50px 15px #ff2457;
   border-radius: 7px;
 }
 .border-glow-green {
   border: 3px solid #00ff54;
   outline: none;
   border-color: #00ff54;
-  box-shadow: 0 0 50px 15px #00ff54;
+  box-shadow: inset 0 0 50px 15px #00ff54;
   border-radius: 7px;
 }
 .letter-container {

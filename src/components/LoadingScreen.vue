@@ -61,8 +61,12 @@ export default {
       setTimeout(() => {
         bg.classList.remove('secondary-color')
         // bg.classList.add('primary-color')
-        this.$refs.apptitle.classList.add('primary-color-text')
-        domEelement.classList.add('primary-color-text')
+        this.$refs.apptitle.classList.add('secondary-color-text')
+        this.$refs.apptitle.classList.add('black-text-shadow')
+
+        domEelement.classList.add('secondary-color-text')
+        domEelement.classList.add('black-text-shadow')
+
         domEelement.classList.remove('hidden')
         setTimeout(() => {
           this.$router.push({ name: 'Splash' })
