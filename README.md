@@ -2,6 +2,13 @@
 
 > Language Learning App
 
+[web](http://linguisti.perlmanlabs.com/)
+
+
+[Google Play] (https://play.google.com/store/apps/details?id=com.perlmanlabs.linguisti&hl=en_US)
+
+
+
 ## Build Setup
 
 ``` bash
